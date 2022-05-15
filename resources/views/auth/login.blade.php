@@ -38,9 +38,9 @@
                 </div>  
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <input type="text" id="matricula" class="form-control form-control-lg @error('matricula') is-invalid @enderror" name="matricula">
-                  <label class="form-label">Matricula</label>
-                    @error('matricula')
+                  <input type="text" id="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email">
+                  <label class="form-label">Correo Electronico</label>
+                    @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -51,7 +51,7 @@
                 <div class="form-outline mb-3">
                   <input type="password" id="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"
                      >
-                  <label class="form-label" for="form3Example4">Nip</label>
+                  <label class="form-label" for="form3Example4">contraseña</label>
                     @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

@@ -9,6 +9,8 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('css/style01.css')}}">
 
     <title>@yield('title')</title>
@@ -21,7 +23,7 @@
         <div class="logo-details">
             <i class='bx bxs-graduation'></i></i>
             <span class="logo_name">
-                Panel
+                Prepa 7
             </span>
         </div>
         <ul class="nav-links">
@@ -51,7 +53,7 @@
             @can('user_index')
             <li>
                 <div class="icon-links">
-                    <a href="#">
+                    <a href="{{ route('users.index') }}">
                         <i class='bx bx-user' ></i>
                         <span class="link_name">Usuarios</span>
                     </a>
@@ -59,9 +61,9 @@
                 </div>
                 
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Usuarios</a></li>
-                    <li><a href="#">Usuarios Registradas</a></li>
-                    <li><a href="#">Registrar Usuarios</a></li>
+                    <li><a class="link_name" href="{{ route('users.index') }}">Usuarios</a></li>
+                    <li><a href="{{ route('users.index') }}">Usuarios Registradas</a></li>
+                    <li><a href="{{ route('users.create') }}">Registrar Usuarios</a></li>
                 </ul>
             </li>
             @endcan
