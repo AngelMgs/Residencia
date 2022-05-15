@@ -35,9 +35,6 @@ class PermissionSeeder extends Seeder
             'user_show',
             'user_edit',
             'user_destroy',
-            // --------
-            
-
 
         ];
 
