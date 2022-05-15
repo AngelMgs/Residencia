@@ -38,10 +38,9 @@
                 </div>  
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <input type="email" id="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" 
-                  required autocomplete="email" autofocus>
+                  <input type="text" id="matricula" class="form-control form-control-lg @error('matricula') is-invalid @enderror" name="matricula">
                   <label class="form-label">Matricula</label>
-                    @error('email')
+                    @error('matricula')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
