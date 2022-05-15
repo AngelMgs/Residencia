@@ -48,7 +48,7 @@
                     <li><a href="#">Contenido Paginas</a></li>
                 </ul>
             </li>
-
+            @can('user_index')
             <li>
                 <div class="icon-links">
                     <a href="#">
@@ -57,12 +57,14 @@
                     </a>
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
+                
                 <ul class="sub-menu">
                     <li><a class="link_name" href="#">Usuarios</a></li>
                     <li><a href="#">Usuarios Registradas</a></li>
                     <li><a href="#">Registrar Usuarios</a></li>
                 </ul>
             </li>
+            @endcan
 
             <li>
                 <div class="icon-links">
