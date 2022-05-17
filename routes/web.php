@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/formato-pr7', function () {
-    return view('form-pr7.HRP-PR7');
+    return view('form-pr7.HDD1-PR7');
 });
 
 Route::resource('users',UsersController::class)->middleware('auth', 'Authenticate');

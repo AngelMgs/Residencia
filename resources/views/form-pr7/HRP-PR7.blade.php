@@ -40,7 +40,7 @@
         <div class="col-sm">
             <div class="form-group form-inline">
                 <label>TURNO:</label>
-                <select id="hrp-sexo" class="form-select" aria-label="Default select example">
+                <select id="hrp-turno" class="form-select" aria-label="Default select example">
                     <option value="MATUTINO">MATUTINO</option>
                     <option value="VESPERTINO">VESPERTINO</option>
                 </select>
@@ -68,7 +68,7 @@
 
         <div class="col-md-3">
             <label class="form-label">GRUPO:</label>
-            <input type="text" class="form-control" id="hrp-grado">
+            <input type="text" class="form-control" id="hrp-grupo">
         </div>
 
         <div class="col-md-3">
@@ -255,7 +255,7 @@
     <div class="row">
         <div class="col-sm">
             <div class="form-group">
-                <textarea class="form-control" rows="5" id="comment"></textarea>
+                <textarea class="form-control" rows="5" id="hrp-acciones"></textarea>
               </div>
         </div>
     </div>
@@ -273,7 +273,7 @@
     <div class="row">
         <div class="col-sm">
             <div class="form-group">
-                <textarea class="form-control" rows="5" id="comment"></textarea>
+                <textarea class="form-control" rows="5" id="hrp-recomendaciones"></textarea>
               </div>
         </div>
     </div>
