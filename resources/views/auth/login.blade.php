@@ -18,7 +18,7 @@
   <header>
     <nav>
       <div class="navbar">
-        <div class="logo"><a href="#"><img src="{{asset('img/rec.png')}}" alt=""></a></div>  
+        <div class="logo"><a href="/home"><img src="{{asset('img/rec.png')}}" alt=""></a></div>  
       </div>
     </nav>    
   </header>
