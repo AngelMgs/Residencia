@@ -48,16 +48,19 @@
 
                                                         <a href="{{ route('users.show', $user->id) }}"
                                                             class="btn btn-info"><i class="material-icons">Ver Perfil</i></a>
+                                                        @can('user_edit')    
                                                         <a href="{{ route('users.edit', $user->id) }}"
                                                             class="btn btn-warning">
                                                             <i class="material-icons">Editar Perfil</i></a>
-
+                                                        @endcan    
+                                                        @can('user_destroy')
                                                         <form action="/users/{{$user->id}}" method="POST">
                                                             @csrf
                                                             @method('delete')
                                                             <input type="submit" class="btn btn-danger btn-sm" value="Eliminar" onclick="return confirm('deseas borrar?')">
                                                                 
-                                                        </form>    
+                                                        </form>
+                                                        @endcan    
                                                     </td>
 
                                                     

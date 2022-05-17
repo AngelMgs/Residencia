@@ -16,7 +16,13 @@ class UsersController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     *
      */
+
+    public function __construct(){
+        $this->middleware('can:user_edit')->only('update','edit');
+        $this->middleware('can:user_destroy')->only('destroy');
+    }
     public function index()
     {
         //
