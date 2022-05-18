@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\UsersController;
 use  App\Http\Controllers\PermissionController;
+use  App\Http\Controllers\RecordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +25,7 @@ Route::get('/formato-pr7', function () {
 
 Route::resource('users',UsersController::class)->middleware('auth', 'Authenticate');
 Route::resource('permission',PermissionController::class)->middleware('auth', 'Authenticate');    
+Route::resource('records',RecordController::class)->middleware('auth', 'Authenticate');    
 
 
 Auth::routes();

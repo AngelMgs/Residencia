@@ -87,7 +87,7 @@
             <li>
                 @can('record_index')
                 <div class="icon-links">
-                    <a href="{{ route('users.index') }}">
+                    <a href="{{ route('records.index') }}">
                         <i class='bx bx-folder'></i>
                         <span class="link_name">Expedientes</span>
                     </a>
@@ -97,14 +97,14 @@
                 
                 <ul class="sub-menu">
                     @can('record_index')
-                    <li><a class="link_name" href="{{ route('users.index') }}">Expedientes</a></li>
+                    <li><a class="link_name" href="{{ route('records.index') }}">Expedientes</a></li>
                     @endcan
 
                     @can('record_index')
-                    <li><a href="{{ route('users.index') }}">Expedientes Registrados</a></li>
+                    <li><a href="{{ route('records.index') }}">Expedientes Registrados</a></li>
                     @endcan
                     @can('record_create')
-                    <li><a href="{{ route('users.create') }}">Agregar Nuevo Expedientes</a></li>
+                    <li><a href="{{ route('records.create') }}">Agregar Nuevo Expedientes</a></li>
                     @endcan
                 </ul>
             </li>
