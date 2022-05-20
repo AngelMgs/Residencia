@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-header card-header-primary">
                         <h4 class="card-title">Permisos</h4>
-                        <p class="card-category">Permisos registrados</p>
+                        <p class="card-category">Permisos de los Usuarios</p>
                         
                     </div>
                     <div class="card-body">
@@ -21,9 +21,7 @@
                                 <thead class="text primary">
                                     <th>Id</th>
                                     <th>Nombre</th>
-                                    <th>Guard</th>
-                                    <th>Fecha de creacion</th>
-                                    <th>Acciones</th>
+                                    <th>Permisos</th>
                                 </thead>
                                 {{-- cuerpo --}}
                                 <tbody>
@@ -31,9 +29,7 @@
                                         <tr>
                                             <td>{{ $role->id }}</td>
                                             <td>{{ $role->name }}</td>
-                                            <td>{{ $role->guard_name }}</td>
-                                            <td class="text-primary">{{ $role->created_at->toFormattedDateString() }}
-                                            </td>
+                                            
 
                                             <td>
                                                 @forelse ($role->permissions as $permission)

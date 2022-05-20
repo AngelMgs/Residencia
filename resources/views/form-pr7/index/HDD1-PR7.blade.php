@@ -32,9 +32,8 @@
         <div class="col-sm">
             <div class="form-group form-inline">
                 <label>TURNO:</label>
-                <select id="hrp-turno" class="form-select" aria-label="Default select example">
-                    <option value="MATUTINO">MATUTINO</option>
-                    <option value="VESPERTINO">VESPERTINO</option>
+                <select name="hrp_turno" class="form-select" aria-label="Default select example">
+                  <option value="{{$info['hrp_turno']}}"><p><u>{{$info['hrp_turno']}}</u></p></option>
                 </select>
             </div>    
         </div>
@@ -51,40 +50,40 @@
           <tr>
             <td class ="col-md-6">
                 <div class="row">
-                    <label>FECHA:<b><div id="hrp-fecha" ></p></b></label>
+                    <label>FECHA:<b><div name="hrp_fecha"></p></b></label>
                 </div>
                 <br>
                 <div class="row">
                     <label >NOMBRE DEL ALUMNO(A):</label>
                     <div class="col-sm-12">
-                      <input type="text" id="hrp-nombre" class="form-control">
+                      <input type="text" name="hrp_nombre" class="form-control" value="{{$info['hrp_nombre']}}" readonly>
                     </div>
                 </div>
                 <div class="row">
                     <label >SM Y GRUPO:</label>
                     <div class="col-sm-12">
-                      <input type="text" id="hrp-smgrupo" class="form-control">
+                      <input type="text" name="hrp_smgrupo" class="form-control" value="{{$info['hrp_smgrupo']}}" readonly>
                     </div>
                 </div>
             
                 <div class="row">
                     <label >HORA:</label>
                     <div class="col-sm-12">
-                      <input type="text" id="hrp-hora" class="form-control">
+                      <input type="text" name="hrp_hora" class="form-control" value="{{$info['hrp_hora']}}" readonly>
                     </div>
                 </div>
             
                 <div class="row">
                     <label >TUTOR:</label>
                     <div class="col-sm-12">
-                      <input type="text" id="hrp-tutor" class="form-control">
+                      <input type="text" name="hrp_tutor" class="form-control" value="{{$info['hrp_tutor']}}" readonly>
                     </div>
                 </div>
             
                 <div class="row">
                     <div class="col-md-12">
                         <label class="form-label">TELFONO:</label>
-                        <input type="number" class="form-control" id="hrp-telefono">
+                        <input type="number" class="form-control" name="hrp_telefono" value="{{$info['hrp_telefono']}}" readonly>
                     </div>
                 </div>
             
@@ -92,7 +91,7 @@
             <td class ="col-md-12">
                 <div class="col-sm">
                     <div class="form-group">
-                        <textarea class="form-control" rows="15" id="hrp-situacion-motivos" placeholder="SITUACION O MOTIVO"></textarea>
+                        <textarea class="form-control" rows="15" name="hrp_situacion_motivos" placeholder="SITUACION O MOTIVO" readonly>{{$info['hrp_situacion_motivos']}}</textarea>
                       </div>
                 </div>
             </td>
@@ -107,6 +106,6 @@
     year = date.getFullYear();
     month = date.getMonth() + 1;
     day = date.getDate();
-    document.getElementById("hrp-fecha").innerHTML = day + "/" + month + "/" + year;
+    document.getElementById("hrp_fecha").innerHTML = day + "/" + month + "/" + year;
 </script>
 @endsection

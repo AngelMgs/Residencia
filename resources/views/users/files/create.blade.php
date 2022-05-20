@@ -5,31 +5,30 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <form action="{{ route('records.store') }}" method="post" class="form-horizontal">
+                <form action="{{ route('files.store') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
                     @csrf
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title">Expedientes</h4>
-                            <p class="card-category">Agregar un Nuevo Expediente</p>
+                            <h4 class="card-title">Galeria</h4>
+                            <p class="card-category">Agrege Imagenes a su Galeria</p>
                         </div>
 
                         <div class="card-body">
 
                             <div class="row">
-                                <label for="nombre" class="col-sm-3 col-form-label">Nombre del Expediente
+                                <label for="nombre" class="col-sm-5 col-form-label">Elija sus imagenes:
                                     <div class="col-sm-100">
-                                        <input type="text" class="form-control" name="nombre"
-                                            placeholder="Ingrese Nombre" value="{{ old('nombre') }}" autofocus>
-                                        @if ($errors->has('nombre'))
+                                        <input type="file" class="form-control" name= "file" id="file" accept="image/*">
+                                        @if ('file')
                                             <span class="error text-danger"
-                                                for="input-name">{{ $errors->first('nombre') }}</span>
+                                                for="input-name">{{ $errors->first('file') }}</span>
                                         @endif
                                     </div>    
                                 </label>      
                         </div>
                         <!--Footer-->
                         <div class="card-footer ml-auto mr-auto">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-primary">Agregar</button>
                         </div>
                         <!--End footer-->
                     </div>

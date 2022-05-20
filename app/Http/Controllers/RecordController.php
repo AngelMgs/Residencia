@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\Record;
+use App\Models\Form;
 
 class RecordController extends Controller
 {
@@ -67,6 +68,17 @@ class RecordController extends Controller
     public function show($id)
     {
         //
+        $forms = Record::join('record_has_forms','record_has_forms.record_id','=','records.id')
+        ->join('forms','record_has_forms.form_id','=','forms.id')
+        ->where('record_has_forms.record_id','=',$id)
+        ->select('forms.*')
+        ->get();
+        
+        $info = Record::find($id);
+        $name = $info->name;
+
+ 
+        return view('users.form.index',compact('forms','name','id'));
     }
 
     /**
@@ -107,6 +119,10 @@ class RecordController extends Controller
     public function destroy($id)
     {
         //
+        $rs = DB::table('forms')
+        ->join('record_has_forms','forms.id','=','record_has_forms.form_id')
+        ->where('record_id','=',$id)->delete();
+
         $rcd = Record::find($id);
         $rcd->delete();
 

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\UsersController;
 use  App\Http\Controllers\PermissionController;
 use  App\Http\Controllers\RecordController;
+use  App\Http\Controllers\FileController;
+use  App\Http\Controllers\FormController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,13 +21,15 @@ Route::get('/', function () {
     return redirect('login');
 });
 
-Route::get('/formato-pr7', function () {
-    return view('form-pr7.HDD1-PR7');
-});
+
 
 Route::resource('users',UsersController::class)->middleware('auth', 'Authenticate');
 Route::resource('permission',PermissionController::class)->middleware('auth', 'Authenticate');    
-Route::resource('records',RecordController::class)->middleware('auth', 'Authenticate');    
+Route::resource('records',RecordController::class)->middleware('auth', 'Authenticate');
+
+Route::resource('forms',FormController::class)->middleware('auth', 'Authenticate'); 
+
+Route::resource('files',FileController::class)->middleware('auth', 'Authenticate');   
 
 
 Auth::routes();

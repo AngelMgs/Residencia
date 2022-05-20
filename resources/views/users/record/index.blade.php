@@ -1,5 +1,7 @@
 @extends('layouts.layout00')
 
+
+
 @section('contenido')
 
 
@@ -8,12 +10,20 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title">Permisos</h4>
-                        <p class="card-category">Permisos registrados</p>
+                        <h4 class="card-title">Expedientes</h4>
+                        <p class="card-category">Todos los Expendientes</p>
+                        
                         
                     </div>
                     <div class="card-body">
-                        
+                        @if (session('success'))
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>{{ session('success') }}</strong>
+                                    <button id="btn1" type="button" class="close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                            </div>
+                        @endif
 
                         <div class="table-responsive">
                             <table class="table">
@@ -50,8 +60,7 @@
                                                 <form action="/records/{{$record->id}}" method="POST">
                                                     @csrf
                                                     @method('delete')
-                                                    <input type="submit" class="btn btn-danger btn-sm" value="Eliminar" onclick="return confirm('deseas borrar?')">
-                                                        
+                                                    <input type="submit" class="btn btn-danger btn-sm" value="Eliminar" onclick="return confirm('¿Confirma para Borrar?')">
                                                 </form>
                                                 @endcan    
                                             </td>
@@ -77,4 +86,5 @@
         </div>
     </div>
 
+    
 @endsection

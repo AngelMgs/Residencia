@@ -11,9 +11,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    
     
     
     <link rel="stylesheet" href="{{asset('css/style01.css')}}">
+    
 
     <title>@yield('title')</title>
 
@@ -110,20 +113,28 @@
             </li>
             @endcan
 
+            @can('files_index')
             <li>
+                
                 <div class="icon-links">
-                    <a href="#">
-                        <i class="bx bx-images"></i>
-                        <span class="link_name">Galeria</span>
-                    </a>
+                    @can('files_index')
+                    <a href="{{ route('files.index') }}"><i class="bx bx-images"></i><span class="link_name">Galeria</span></a>
                     <i class='bx bxs-chevron-down arrow' ></i>
+                    @endcan
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Galeria</a></li>
-                    <li><a href="#">Toda la Galeria</a></li>
-                    <li><a href="#">Subir</a></li>
+                    @can('files_index')
+                    <li><a class="link_name" href="{{ route('files.index') }}">Galeria</a></li>
+                    @endcan
+                    @can('files_index')
+                    <li><a href="{{ route('files.index') }}">Toda la Galeria</a></li>
+                    @endcan
+                    @can('files_create')
+                    <li><a href="{{ route('files.create') }}">Subir</a></li>
+                    @endcan
                 </ul>
             </li>
+            @endcan
 
             <li>
                 <div class="profile-details">
@@ -170,7 +181,11 @@
         sidebarBtn.addEventListener("click", ()=>{
           sidebar.classList.toggle("close");
         });
+
+
+        
         </script>
 
+        
 </body>
 </html>

@@ -41,6 +41,16 @@ class PermissionSeeder extends Seeder
             'record_show',
             'record_edit',
             'record_destroy',
+
+            'files_index',
+            'files_create',
+            'files_destroy',
+
+            'form_index',
+            'form_create',
+            'form_show',
+            'form_edit',
+            'form_destroy',
         ];
 
         foreach($permissions as $permission){

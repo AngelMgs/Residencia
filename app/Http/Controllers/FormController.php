@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\Form;
 
 class FormController extends Controller
 {
@@ -11,9 +13,17 @@ class FormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function __construct(){
+        $this->middleware('can:form_index')->only('index');
+        $this->middleware('can:form_show')->only('show');
+        $this->middleware('can:form_edit')->only('update','edit');
+        $this->middleware('can:form_destroy')->only('destroy');
+    }
+
+    public function index(Request $request )
     {
-        //
+        
     }
 
     /**
@@ -21,9 +31,20 @@ class FormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        $record_id = $request->record_id;
+        if($request->fm_pr7 == 'HRP'){
+            $ruta = 'form-pr7.create.HRP-PR7';
+
+        }elseif($request->fm_pr7 == 'HD1'){
+            $ruta = 'form-pr7.create.HDD0-PR7';
+
+        }elseif($request->fm_pr7 == 'HD2'){
+            $ruta = 'form-pr7.create.HDD1-PR7';
+        }
+        return view($ruta,compact('record_id'));
     }
 
     /**
@@ -35,6 +56,25 @@ class FormController extends Controller
     public function store(Request $request)
     {
         //
+        $form = $request->all();
+        $name = $request->name;
+        $id  = $request->record_id;
+        $form = array_splice($form ,3);
+
+        $frm = new Form();
+        $frm->name = $name;
+        $frm->info = json_encode($form);
+        $frm->save();
+
+        $id_form = Form::latest()->first()->id;
+
+        DB::table('record_has_forms')->insert([
+            ['record_id' => $id, 'form_id' => $id_form]
+        ]);
+
+        return redirect()->route('records.show',$id)
+        ->withSuccess('Formato creado correctamente');
+
     }
 
     /**
@@ -46,6 +86,22 @@ class FormController extends Controller
     public function show($id)
     {
         //
+        $form = Form::find($id);
+
+        $info = $form->info;
+        $name = $form->name;
+        $info = json_decode($info,true);
+
+        if($name == 'HojaDelDiario1'){
+            $ruta = 'form-pr7.index.HDD0-PR7';
+
+        }elseif($name == 'HojaDelDiario2'){
+            $ruta = 'form-pr7.index.HDD1-PR7';
+
+        }elseif($name == 'HojaDeRegitroPersonal'){
+            $ruta = 'form-pr7.index.HRP-PR7';
+        }
+        return view($ruta,compact('info'));
     }
 
     /**
@@ -54,9 +110,26 @@ class FormController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,Request $request)
     {
         //
+        $record_id = $request->record_id;
+        $form = Form::find($id);
+
+        $info = $form->info;
+        $name = $form->name;
+        $info = json_decode($info,true);
+
+        if($name == 'HojaDelDiario1'){
+            $ruta = 'form-pr7.edit.HDD0-PR7';
+
+        }elseif($name == 'HojaDelDiario2'){
+            $ruta = 'form-pr7.edit.HDD1-PR7';
+
+        }elseif($name == 'HojaDeRegitroPersonal'){
+            $ruta = 'form-pr7.edit.HRP-PR7';
+        }
+        return view($ruta,compact('info','record_id','id'));
     }
 
     /**
@@ -69,6 +142,16 @@ class FormController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $record_id  = $request->record_id;
+        $form = $request->all();
+        $form = array_splice($form ,2);
+        $info = json_encode($form);
+
+        $form = Form::where('id','=',$id)->update(['info' =>  $info]);
+        
+        return redirect()->route('records.show',$record_id)
+        ->withSuccess('Formato Actualizado correctamente');
+        return $record_id;
     }
 
     /**
@@ -77,8 +160,16 @@ class FormController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,Request $request)
     {
-        //
+        //;
+        $frm = Form::find($id);
+        $frm->delete();
+
+        
+        $id = $request->record_id;
+
+        return redirect()->route('records.show',$id)
+        ->withSuccess('Formato Eliminado correctamente');
     }
 }

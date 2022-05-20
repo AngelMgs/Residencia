@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('record_has_forms', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('record_id')->references('id')->on('records')->onDelete('cascade');
             $table->foreignId('form_id')->references('id')->on('forms')->onDelete('cascade');
 
