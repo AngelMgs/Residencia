@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
         ]);
         $user->assignRole('Psicologo');
 
-
+        User::factory(50)->create();
 
     }
 }

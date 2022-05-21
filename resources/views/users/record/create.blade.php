@@ -29,7 +29,7 @@
                         </div>
                         <!--Footer-->
                         <div class="card-footer ml-auto mr-auto">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button class="text-grey-lighter font-bold py-3 px-6 rounded text-xs bg-green-300 hover:bg-blue-dark">Guardar</button>
                         </div>
                         <!--End footer-->
                     </div>

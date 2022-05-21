@@ -28,7 +28,7 @@
                         </div>
                         <!--Footer-->
                         <div class="card-footer ml-auto mr-auto">
-                            <button type="submit" class="btn btn-primary">Agregar</button>
+                            <button class="text-grey-lighter font-bold py-3 px-6 rounded text-xs bg-green-300 hover:bg-blue-dark">Agregar</button>
                         </div>
                         <!--End footer-->
                     </div>

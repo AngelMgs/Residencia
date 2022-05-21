@@ -3,29 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use App\Models\File;
-class FileController extends Controller
+
+class PagesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct(){
-        $this->middleware('can:files_index')->only('index');
-        $this->middleware('can:files_show')->only('show');
-        $this->middleware('can:files_edit')->only('update','edit');
-        $this->middleware('can:files_destroy')->only('destroy');
-    }
-    
     public function index()
     {
         //
-        $files = File::paginate(3);
-        return view('users.files.index',compact('files'));
-
     }
 
     /**
@@ -36,7 +24,6 @@ class FileController extends Controller
     public function create()
     {
         //
-        return view('users.files.create');
     }
 
     /**
@@ -48,20 +35,6 @@ class FileController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'file' => 'required|image|max:2048'
-        ]);
-
-        $img = $request->file('file')->store('public/galery');
-        $url = Storage::url($img);
-
-        File::create([
-            'url' => $url
-        ]);
-
-        return redirect()->route('files.index')
-        ->withSuccess('Imagen Agregada Correctamente');
-
     }
 
     /**
@@ -104,15 +77,8 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(File $file)
+    public function destroy($id)
     {
         //
-        $url = str_replace('storage','public',$file->url);
-        Storage::delete($url);
-
-        $file->delete();
-
-        return redirect()->route('files.index')
-        ->withSuccess('Imagen Eliminada Correctamente');
     }
 }
