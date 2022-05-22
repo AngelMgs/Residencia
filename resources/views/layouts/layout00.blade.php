@@ -47,20 +47,26 @@
                     <li><a class="link_name">no found</a></li>
                 </ul>
             </li>
+            @can('pages_index')
             <li>
+                @can('pages_index')
                 <div class="icon-links">
-                    <a href="#">
+                    <a href="{{ route('pages.index') }}">
                         <i class='bx bx-book-bookmark' ></i>
                         <span class="link_name">Paginas</span>
                     </a>
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
+                @endcan
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Paginas</a></li>
-                    <li><a href="#">Paginas Registradas</a></li>
+                    @can('pages_index')
+                    <li><a class="link_name" href="{{ route('pages.index') }}">Paginas</a></li>
+                    <li><a href="{{ route('pages.index') }}">Paginas Registradas</a></li>
+                    @endcan
                     <li><a href="#">Contenido Paginas</a></li>
                 </ul>
             </li>
+            @endcan
             @can('user_index')
             <li>
                 @can('user_index')

@@ -3,17 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Page;
 
-class PagesController extends Controller
+class PageController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(){
+        $this->middleware('can:pages_index')->only('index');
+        $this->middleware('can:pages_show')->only('show');
+        $this->middleware('can:pages_edit')->only('update','edit');
+        $this->middleware('can:pages_destroy')->only('destroy');
+    }
     public function index()
     {
         //
+        $pages = Page::paginate(5);
+        return view('users.pages.index',compact('pages'));
     }
 
     /**
@@ -34,7 +44,11 @@ class PagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Page::create([
+            'name' => $request->name_host,
+        ]);
+        
+        return response()->json(['success'=>'Registrado']);
     }
 
     /**
@@ -69,6 +83,7 @@ class PagesController extends Controller
     public function update(Request $request, $id)
     {
         //
+
     }
 
     /**
@@ -81,4 +96,6 @@ class PagesController extends Controller
     {
         //
     }
+
+    
 }

@@ -41,7 +41,7 @@
         <img
         src="{{asset($file->url)}}"
         alt="Table Full of Spices"
-        class="w-70 mb-2 mb-md-6 shadow-1-strong rounded"
+        class="w-70 mb-2 mb-md-6 shadow-1-strong rounded "
       />
     </div> 
     @empty
