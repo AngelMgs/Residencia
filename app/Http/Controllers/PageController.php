@@ -34,6 +34,8 @@ class PageController extends Controller
     public function create()
     {
         //
+
+        
     }
 
     /**
@@ -83,7 +85,7 @@ class PageController extends Controller
     public function update(Request $request, $id)
     {
         //
-
+        return response()->json(['success'=>'aqui toy'.$request->id]);
     }
 
     /**

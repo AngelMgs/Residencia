@@ -87,9 +87,11 @@
                 @can('pages_index')  
                 <a href="{{ route('PageRedirect', $page->name) }}" class="text-grey-lighter font-bold py-2 px-4 rounded text-xs bg-blue-300 hover:bg-green-dark">Ir</a>
                 @endcan
+            </td>
+            <td>
                 @can('pages_edit')  
-                <a href="{{ route('PageRedirect', $page->name) }}" class="text-grey-lighter font-bold py-2 px-4 rounded text-xs bg-blue-300 hover:bg-green-dark">Ir</a>
-                @endcan 
+                    
+                @endcan
             </td>
         </tr>
         @empty
@@ -106,9 +108,39 @@
 </div>
 
 <script>
-    $(document).ready(function(){
+$(document).ready(function(){
 
 var form = '#add-page-form';
+
+$(form).on('submit', function(event){
+    event.preventDefault();
+
+    var url = $(this).attr('data-action');
+
+    $.ajax({
+        url: url,
+        method: 'POST',
+        data: new FormData(this),
+        dataType: 'JSON',
+        contentType: false,
+        cache: false,
+        processData: false,
+        success:function(response)
+        {
+            $(form).trigger("reset");
+            alert(response.success)
+        },
+        error: function(response) {
+            alert()
+        }
+    });
+});
+
+});
+
+$(document).ready(function(){
+
+var form = '#update-page-form';
 
 $(form).on('submit', function(event){
     event.preventDefault();

@@ -13,9 +13,13 @@
   
         <div class="col-sm">
           <p class="text-center"><b>SUBSECRETARIA DE EDUACION ESTATAL</b>
+        <br>
           DIRECCIÓN DE EDUACIÓN MEDIA
+        <br>
           DEPARTAMENTO PSICOPEDAGÓGICO
+        <br>
           ESCUELA PREPARATORIA NUM. 7 DEL ESTADO 
+        <br>
           CLAVE: 07EBH00899Z T/M CLAVE: 07EBH0067N T/M 
           </p>
         </div>
