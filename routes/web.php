@@ -9,6 +9,8 @@ use  App\Http\Controllers\FormController;
 use  App\Http\Controllers\PageController;
 use  App\Http\Controllers\DomainController;
 use  App\Http\Controllers\PageRedirectController;
+use  App\Http\Controllers\EventController;
+use  App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +25,7 @@ use  App\Http\Controllers\PageRedirectController;
 
 
 Route::get('/', function () {
-    return redirect('login');
+    return redirect('estudiantes');
 });
 
 
@@ -33,14 +35,17 @@ Route::resource('permission',PermissionController::class)->middleware('auth', 'A
 Route::resource('records',RecordController::class)->middleware('auth', 'Authenticate');
 Route::resource('forms',FormController::class)->middleware('auth', 'Authenticate'); 
 Route::resource('files',FileController::class)->middleware('auth', 'Authenticate');  
-Route::resource('pages',PageController::class)->middleware('auth', 'Authenticate');    
+Route::resource('pages',PageController::class)->middleware('auth', 'Authenticate');  
+Route::resource('events',EventController::class)->middleware('auth', 'Authenticate');  
+Route::resource('news',NewsController::class)->middleware('auth', 'Authenticate');   
 
 
 Auth::routes();
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('home');
+Route::get('/estudiantes', [App\Http\Controllers\HomeController::class, 'indexEstudiantes'])->name('student');
+Route::get('/eventos', [App\Http\Controllers\HomeController::class, 'indexEventos'])->name('eventos');
 
 
-
-Route::get('/{host}',[PageRedirectController::class,'PageRedirect'])->middleware('page')->name('PageRedirect');
+Route::post('validation',[UsersController::class,'validation'])->middleware('auth', 'Authenticate')->name('validation');

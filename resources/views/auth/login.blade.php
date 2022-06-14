@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Acesso Alumnos de La Escuela Preparatoria No. 7 del Gobierno del Estado de Chiapas </title>
+    <title>Acesso Alumnos de La Escuela Preparatoria No. 7 del Gobierno del Estado de Chiapas</title>
 
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -22,6 +22,7 @@
       </div>
     </nav>    
   </header>
+  
   <section class="home-section">
     <div class="container">
       <section class="vh-100">

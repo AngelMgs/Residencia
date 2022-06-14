@@ -3,28 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Page;
+use App\Models\Notice;
+use App\Models\File;
 
-class PageController extends Controller
+class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function __construct(){
-        $this->middleware('can:pages_index')->only('index');
-        $this->middleware('can:pages_show')->only('show');
-        $this->middleware('can:pages_edit')->only('update','edit');
-        $this->middleware('can:pages_destroy')->only('destroy');
+        $this->middleware('can:editor_index')->only('index');
+        $this->middleware('can:editor_show')->only('show');
+        $this->middleware('can:editor_edit')->only('update','edit');
+        $this->middleware('can:editor_destroy')->only('destroy');
     }
-    
+
     public function index()
     {
         //
-        $pages = Page::paginate(5);
-        return view('users.pages.index',compact('pages'));
+        $news = Notice::paginate(5);
+        return view('users.editor.news.index',compact('news'));
     }
 
     /**
@@ -35,8 +35,8 @@ class PageController extends Controller
     public function create()
     {
         //
-
-        
+        $files = File::paginate(3);
+        return view('users.editor.news.create',compact('files'));
     }
 
     /**
@@ -47,11 +47,8 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        Page::create([
-            'name' => $request->name_host,
-        ]);
-        
-        return response()->json(['success'=>'Registrado']);
+        //
+        return response()->json($request->all());
     }
 
     /**
@@ -86,7 +83,6 @@ class PageController extends Controller
     public function update(Request $request, $id)
     {
         //
-        return response()->json(['success'=>'aqui toy'.$request->id]);
     }
 
     /**
@@ -98,7 +94,10 @@ class PageController extends Controller
     public function destroy($id)
     {
         //
-    }
+        $event = Notice::find($id);
+        $event->delete();
 
-    
+        return redirect()->route('news.index')
+        ->withSuccess('Noticia Eliminado correctamente');
+    }
 }

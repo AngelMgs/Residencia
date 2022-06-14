@@ -15,46 +15,44 @@
     </div>
     @endif
     
-    
-
     <div class="bg-white shadow-md rounded my-7">
         <header class="px-5 py-4 border-b border-gray-100">
-            <div class="font-semibold text-gray-800">Usuarios Registrados</div>
+            <div class="font-semibold text-gray-800">Noticia</div>
         </header>
 
       <table id="table1" class="text-left w-full border-collapse table table-striped"> <!--Border collapse doesn't work on this site yet but it's available in newer tailwind versions -->
         <thead>
           <tr>
             <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">ID</th>
-            <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Correo</th>
-            <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Role</th>
+            <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Titulo</th>
+            <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Descripcion</th>
+            <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Fecha de Publicacion</th>
             <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Acciones</th>
-          
         </tr>
         </thead>
         <tbody>
-        @foreach ($users as $user)
+        @foreach ($news as $new)
         <tr class="hover:bg-grey-lighter">
-            <td class="py-4 px-6 border-b border-grey-light">{{$user->id}}</td>
-            <td class="py-4 px-6 border-b border-grey-light">{{$user->email}}</td>
-            <td class="py-4 px-6 border-b border-grey-light">
-                @forelse ($user->roles as $role)
-                    <span class="badge badge-info">{{ $role->name }}</span>
-                @empty
-                    <span class="badge badge-danger">Sin rol de usuario</span>
-                @endforelse
-            </td>
+            <td class="py-4 px-6 border-b border-grey-light">{{$new->id}}</td>
+            <td class="py-4 px-6 border-b border-grey-light">{{$new->title}}</td>
+            <td class="py-4 px-6 border-b border-grey-light">{{$new->body}}</td>
+            <td class="py-4 px-6 border-b border-grey-light">{{$new->created_at}}</td>
+            
             
             <td class="py-4 px-6 border-b border-grey-light">
-                <a href="{{ route('users.show', $user->id) }}" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue-300 hover:bg-blue-dark">Ver Perfil</a>
-                @can('user_edit')  
-                <a href="{{ route('users.edit', $user->id) }}" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green-300 hover:bg-green-dark">Editar</a>
-                @endcan 
+                @can('editor_edit')  
+                <a href="{{ route('news.edit', $new->id) }}" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green-300 hover:bg-green-dark">Editar</a>
+                @endcan
+            </td>
+            <td class="py-4 px-6 border-b border-grey-light">
+                @can('editor_edit')  
+                <a href="{{ route('news.show', $new->id) }}" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-yellow-400 hover:bg-green-dark">Ver</a>
+                @endcan
             </td>
             <td class="p-2">
-                @can('user_destroy')
+                @can('editor_destroy')
                 <div class="justify-center">
-                    <form action="/users/{{$user->id}}" method="POST">
+                    <form action="/news/{{$new->id}}" method="POST">
                         @csrf
                         @method('delete')
                         <button>
@@ -77,7 +75,7 @@
       </table>
     </div>
     <div class="bg-white shadow-md rounded my-7">
-    {{ $users->links(('pagination::bootstrap-4') ) }}
+    {{ $news->links(('pagination::bootstrap-4') ) }}
     </div>
 </div>
 

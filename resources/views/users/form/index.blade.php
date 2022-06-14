@@ -20,7 +20,7 @@
                                     <option value="HD2">Hoja del Diario 2</option>
                                   </select>
                                   <div class="text-left">
-                                    <button class="text-grey-lighter font-bold py-3 px-6 rounded text-xs bg-green-300 hover:bg-blue-dark">Editar Formato</button>
+                                    <button class="text-grey-lighter font-bold py-3 px-6 rounded text-xs bg-green-300 hover:bg-blue-dark">Añadir Formato</button>
                                   </div>  
                             </form>
                             </div>

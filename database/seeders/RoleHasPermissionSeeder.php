@@ -38,6 +38,7 @@ class RoleHasPermissionSeeder extends Seeder
             $permission->name != 'user_destroy' && 
             $permission->name != 'user_edit' && 
             $permission->name != 'user_create' && 
+            substr($permission->name, 0, 7) != 'editor_' &&
             substr($permission->name, 0, 6) != 'files_' &&
             substr($permission->name, 0, 7) != 'record_' &&
             substr($permission->name, 0, 5) != 'role_' &&
@@ -48,6 +49,7 @@ class RoleHasPermissionSeeder extends Seeder
         $user_permissions = $admin_permissions->filter(function($permission) {
             return
             //permisos que no tiene el rol
+            substr($permission->name, 0, 7) != 'editor_' &&
             substr($permission->name, 0, 5) != 'user_' &&
             substr($permission->name, 0, 5) != 'role_' &&
             substr($permission->name, 0, 6) != 'files_' &&

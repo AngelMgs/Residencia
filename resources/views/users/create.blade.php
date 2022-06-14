@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <form action="{{ route('users.store') }}" method="post" class="form-horizontal">
+                <form action="{{ route('users.store') }}" method="post" class="form-horizontal" id="form1">
                     @csrf
                     <div class="card">
                         <div class="card-header card-header-primary">
@@ -20,7 +20,7 @@
     
                                 <label for="name" class="col-sm-3 col-form-label">Correo Electronico
                                     <div class="col-sm-100">
-                                        <input type="email" class="form-control" name="email"
+                                        <input type="email" class="form-control" name="email" id="email"
                                             placeholder="Ingrese Correo Electronico" value="{{ old('email') }}" autofocus>
                                         @if ($errors->has('email'))
                                             <span class="error text-danger"
@@ -118,7 +118,8 @@
                         </div>
                         <!--Footer-->
                         <div class="card-footer ml-auto mr-auto">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            
+                            <button class="text-grey-lighter font-bold py-3 px-6 rounded text-xs bg-blue-300 hover:bg-blue-dark">Añadir Usuario</button>
                         </div>
                         <!--End footer-->
                     </div>
@@ -127,4 +128,25 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function myFunction() {
+      var x = document.getElementById("email").value;
+      
+      if(x != 0){
+    //datos iran a el controlador AccionesController
+       $.ajax({
+        method:'post',
+        url:'{{route('validation')}}',
+        data:$("#form1").serialize()
+       }).done(function(res){
+       
+         alert(res.success);
+        
+       })
+      }
+     
+    }
+</script>
+
 @endsection

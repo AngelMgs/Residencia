@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
         ]);
         $user->assignRole('Editor');
 
-        //User::factory(50)->create();
+        User::factory(50)->create();
 
     }
 }

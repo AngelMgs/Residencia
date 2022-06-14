@@ -150,4 +150,16 @@ class UsersController extends Controller
         ->withSuccess('Usuario Eliminado correctamente');
 
     }
+
+    public function validation(Request $request){
+
+        $bl = ((bool) Page::where('email','=',$request->input('email'))->value('email'));
+
+        if ($bl) {
+            return response()->json(['success'=>'Correo se Encuentra Registrado']);
+        }
+        if (!$bl) {
+            return response()->json(['success'=>'Correo se Encuentra Registrado']);
+        }
+    }
 }

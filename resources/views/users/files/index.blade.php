@@ -43,6 +43,8 @@
         alt="Table Full of Spices"
         class="w-70 mb-2 mb-md-6 shadow-1-strong rounded "
       />
+      
+      
     </div> 
     @empty
     <div class="max-w-sm bg-white rounded overflow-hidden shadow-lg">

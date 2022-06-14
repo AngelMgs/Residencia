@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.box {
+	@apply
+		bg-indigo-700
+		text-gray-100
+		min-w-full
+		h-32
+		min-h-full
+		rounded;
+}
+
+.item {
+	@apply
+		bg-indigo-700 text-gray-100
+		text-xl font-bold
+		flex items-center content-center justify-center
+		rounded
+}
