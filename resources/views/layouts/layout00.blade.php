@@ -49,32 +49,7 @@
             </a>
         </div>
         <ul class="nav-links">
-            <li>
-                <a href="#">
-                    <i class='bx bx-error-alt'></i>
-                    <span class="link_name">no found</span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a class="link_name">no found</a></li>
-                </ul>
-            </li>
-            @can('pages_index')
-            <li>
-                @can('pages_index')
-                <div class="icon-links">
-                    <a href="{{ route('pages.index') }}">
-                        <i class='bx bx-book-bookmark' ></i>
-                        <span class="link_name">Paginas</span>
-                    </a>
-                </div>
-                @endcan
-                <ul class="sub-menu">
-                    @can('pages_index')
-                    <li><a class="link_name" href="{{ route('pages.index') }}">Paginas</a></li>
-                    @endcan
-                </ul>
-            </li>
-            @endcan
+            
 
             @can('user_index')
             <li>
@@ -220,8 +195,21 @@
                         
                     </div>
                         <div class="name-jobs">
-                            <div class="profile_name"></div>
-                            <div class="job">{{ Auth::user()->name }}</div>
+                            <div class="profile_name">
+
+                            </div>
+                            @if(@Auth::user()->hasRole('Admin'))
+                            <div class="job">Administrador</div>
+                            @endif
+                            @if(@Auth::user()->hasRole('Editor'))
+                            <div class="job">Editor</div>
+                            @endif
+                            @if(@Auth::user()->hasRole('Docente'))
+                            <div class="job">Editor</div>
+                            @endif
+                            @if(@Auth::user()->hasRole('Psicologo'))
+                            <div class="job">Dep.Psicopedagogico</div>
+                            @endif
                         </div>  
                         
                         <i class="bx bx-log-out" onclick="event.preventDefault();

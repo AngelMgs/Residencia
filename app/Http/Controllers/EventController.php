@@ -52,8 +52,8 @@ class EventController extends Controller
         Event::create([
             'title' => $request->title,
             'description' => $request->description,
-            'start' => DateTime::createFromFormat('d/m/Y', strtoupper($request->start))->format('Y-m-d'),
-            'end' => DateTime::createFromFormat('d/m/Y', strtoupper($request->end))->format('Y-m-d'),
+            'start' => DateTime::createFromFormat('d/m/Y', $request->start)->format('Y-m-d'),
+            'end' => DateTime::createFromFormat('d/m/Y', $request->end)->format('Y-m-d'),
         ]);
         
        
@@ -98,8 +98,8 @@ class EventController extends Controller
         //
         $usrs = Event::where('events.id','=',$id)
         ->update(['events.title' => $request->title , 'events.description' => $request->description
-                 ,'events.start' => DateTime::createFromFormat('d/m/Y', strtoupper($request->start))->format('Y-m-d') 
-                 ,'events.end' => DateTime::createFromFormat('d/m/Y', strtoupper($request->end))->format('Y-m-d')]);
+                 ,'events.start' => DateTime::createFromFormat('d/m/Y', $request->start)->format('Y-m-d') 
+                 ,'events.end' => DateTime::createFromFormat('d/m/Y', $request->end)->format('Y-m-d')]);
 
         return redirect()->route('events.index')->withSuccess('Se Actualizo correctamente detalles del Evento');         
     }

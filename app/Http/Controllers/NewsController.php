@@ -48,7 +48,19 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         //
-        return response()->json($request->all());
+        $file = File::find($request->img_url);
+
+        Notice::create([
+            'title' => $request->title,
+            'body' => $request->body,
+            'img_url' => $file->url,
+            'link_name' => $request->link_name,
+            'link_url' => $request->link_url,
+        ]);
+        
+       
+        return redirect()->route('news.index')
+        ->withSuccess('Anuncio creado correctamente');
     }
 
     /**

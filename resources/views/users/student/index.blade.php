@@ -10,27 +10,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.css">
-
-   
-    
-
     <link rel="dns-prefetch" href="//unpkg.com" />
 	<link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.css">
 
-    <link rel="stylesheet" href="{{asset('css/style02.css')}}">
-    
-	<link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
-	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
-
-   
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/locales-all.js"></script>
+
+
+    <link rel="stylesheet" href="{{asset('css/style02.css')}}">
+	<link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
     
+
+	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script> 
     
     <title>Estudiantes</title>
 </head>
@@ -44,9 +41,11 @@
     </header>
 
     <nav>
-        <a href="#">Inicio</a>
+        <a href="/">Inicio</a>
         <a href="#">Eventos</a>
-        <a href="#">Noticias</a>
+        <a href="#">Boleta de Calificaciones</a>
+        <a href="/login">Administrativos</a>
+        
     </nav>
 
     <div class="row_7">
@@ -148,10 +147,13 @@
         </section>
         <aside>
             <div class="container_calendario">
-                <div class="container">
-                    <div class="antialiased sans-serif bg-gray-100 h-full" id="calendar" >
-                        
-                      </div>
+                <div class="container py-2">
+                    <div class="bg-white shadow-md rounded my-7">
+                        <header class="bg-red-200 px-auto py-auto border-b border-gray-100">
+                            <div class="font-semibold text-gray-800">Eventos</div>
+                        </header>
+                    <div class="antialiased sans-serif bg-gray-100 h-full" id="calendar"></div>
+                    </div>
                 </div>    
             </div>
         </aside>

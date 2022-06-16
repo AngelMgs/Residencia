@@ -51,7 +51,12 @@ class HomeController extends Controller
 
     public function indexEventos(){
             $events = Event::all();
-            return response()->json($events);
+
+            foreach ($events as $event) {
+                $event->end = date("Y-m-d", strtotime($event->end."+ 1 days")); 
+            }
+
+            return $events->all();
     }
     
     public function login(){

@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Notice extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'body',
+        'img_url',
+        'link_name',
+        'link_url',
+    ];
 }

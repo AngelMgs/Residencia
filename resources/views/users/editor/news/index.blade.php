@@ -39,16 +39,7 @@
             <td class="py-4 px-6 border-b border-grey-light">{{$new->created_at}}</td>
             
             
-            <td class="py-4 px-6 border-b border-grey-light">
-                @can('editor_edit')  
-                <a href="{{ route('news.edit', $new->id) }}" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green-300 hover:bg-green-dark">Editar</a>
-                @endcan
-            </td>
-            <td class="py-4 px-6 border-b border-grey-light">
-                @can('editor_edit')  
-                <a href="{{ route('news.show', $new->id) }}" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-yellow-400 hover:bg-green-dark">Ver</a>
-                @endcan
-            </td>
+            
             <td class="p-2">
                 @can('editor_destroy')
                 <div class="justify-center">
