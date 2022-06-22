@@ -15,8 +15,8 @@
                         </div>
 
                         <div class="card-body">
-                            
-                            
+                        
+
                             <div class="row">
     
                                 <label for="name" class="col-sm-3 col-form-label">Correo Electronico
@@ -76,6 +76,11 @@
 
                             </div>
                             
+
+
+                        </div>
+                        <div class="card-footer bg-white ml-auto mr-auto">
+                            <a class="text-grey-lighter font-bold py-3 px-6 rounded text-xs bg-blue-300 hover:bg-blue-dark" href="{{route('reset',$id)}}">Cambiar Contraseña</a>
                         </div>
                         @endforeach 
                     </div>

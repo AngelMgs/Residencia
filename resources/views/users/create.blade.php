@@ -97,7 +97,26 @@
                                     </div>    
                                 </label>
 
+
+
                             </div>
+
+                            <br>
+
+                            <div class="row">
+
+                                <label for="name" class="col-sm-3 col-form-label">Contraseña
+                                    <div class="col-sm-100">
+                                        <input type="password" class="form-control" name="password"
+                                            placeholder="Ingrese la Contraseña" value="{{ old('contraseña') }}" autofocus>
+                                        @if ($errors->has('password'))
+                                            <span class="error text-danger"
+                                                for="input-name">{{ $errors->first('password') }}</span>
+                                        @endif
+                                    </div>    
+                                </label>
+                            </div>
+
                             
                             <br>
 

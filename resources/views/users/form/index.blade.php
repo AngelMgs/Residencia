@@ -81,9 +81,25 @@
                                                             </button>
                                                     </form>
                                                 @endcan
-                                            </td>    
+                                            </td> 
+                                            
+                                            <td>
+                                                @can('form_show')
+                                                @can('record_destroy')
+                                                    <form action="{{ route('forms.destroy',$form["id"]) }}" method="POST">
+                                                        @csrf
+                                                        @method('delete')
+                                                            <input  name="record_id" type="hidden" value="{{$id}}" >
+                                                            <button class="text-grey-lighter font-bold py-2 px-3 rounded text-xs bg-blue-300 hover:bg-blue-dark"><i class='bx bxs-file-pdf'width="10px">Generar PDF</i></a>
+                                                                
+                                                            </button>
+                                                    </form>
+                                                @endcan
+                                                @endcan
+                                            </td>
                                             
                                         </tr>
+
                                     @empty
                                         <tr>
                                             <td colspan="2">Sin registros.</td>

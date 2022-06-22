@@ -109,6 +109,44 @@
             </li>
             @endcan
 
+            @can('record_index')
+            <li>
+                @can('record_index')
+                <div class="icon-links">
+                    <a href="{{ route('records.index') }}">
+                        <i class='bx bx-folder'></i>
+                        <span class="link_name">Escritos</span>
+                    </a>
+                </div>
+                @endcan
+
+                <ul class="sub-menu">
+                    @can('record_index')
+                    <li><a class="link_name" href="{{ route('records.index') }}">Escritos</a></li>
+                    @endcan
+                </ul>    
+            </li>
+            @endcan
+
+            @can('record_index')
+            <li>
+                @can('record_index')
+                <div class="icon-links">
+                    <a href="{{ route('records.index') }}">
+                        <i class='bx bx-folder'></i>
+                        <span class="link_name">Red de Apoyo IA</span>
+                    </a>
+                </div>
+                @endcan
+
+                <ul class="sub-menu">
+                    @can('record_index')
+                    <li><a class="link_name" href="{{ route('records.index') }}">Red de Apoyo IA</a></li>
+                    @endcan
+                </ul> 
+            </li>
+            @endcan
+
            
 
             

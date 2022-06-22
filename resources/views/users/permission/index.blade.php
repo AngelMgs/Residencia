@@ -17,7 +17,7 @@
 
     <div class="bg-white shadow-md rounded my-7">
         <header class="px-5 py-4 border-b border-gray-100">
-            <div class="font-semibold text-gray-800">Expedientes</div>
+            <div class="font-semibold text-gray-800">Permisos</div>
         </header>
 
       <table class="text-left w-full border-collapse"> <!--Border collapse doesn't work on this site yet but it's available in newer tailwind versions -->

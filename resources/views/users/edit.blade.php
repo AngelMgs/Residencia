@@ -5,6 +5,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
+                
                 @foreach ($usrs as $usr)  
                 <form action="/users/{{$id}}" method="post" class="form-horizontal">
                     @csrf

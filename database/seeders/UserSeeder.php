@@ -18,30 +18,29 @@ class UserSeeder extends Seeder
     {
         //
         $user = User ::create([
-            'email' => 'Admin@admin.com',
+            'email' => 'Admin@prepa7.edu.mx',
             'password' => bcrypt('1234'),
         ]);
         $user->assignRole('Admin');
 
         $user = User ::create([
-            'email' => 'docente@docente.com',
+            'email' => 'docente@prepa7.edu.mx',
             'password' => bcrypt('1234'),
         ]);
         $user->assignRole('Docente');
 
         $user = User ::create([
-            'email' => 'psicologo@psicologo.com',
+            'email' => 'psicologo@prepa7.edu.mx',
             'password' => bcrypt('1234'),
         ]);
         $user->assignRole('Psicologo');
 
         $user = User ::create([
-            'email' => 'editor@editor.com',
+            'email' => 'editor@prepa7.edu.mx',
             'password' => bcrypt('1234'),
         ]);
         $user->assignRole('Editor');
 
-        User::factory(50)->create();
-
+        
     }
 }

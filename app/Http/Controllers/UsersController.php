@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\ProfileUser;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rules;
 
 use App\Http\Requests\UserRequest;
 
@@ -52,8 +53,13 @@ class UsersController extends Controller
     {
         //
         
+        $request->validate([
+            'email' => 'required|string|email|max:255|unique:users',
+            'password'=>['required', Rules\Password::min(8)],
+        ]);
+        
         $user = User::create($request->only('email')
-            + ['password' => bcrypt(  substr($request->input('email'),0,4) ), ]);
+            + ['password' => bcrypt($request->input('password')), ]);
 
         $usr = new ProfileUser();
         
@@ -85,16 +91,15 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
-        //$usr = User::find($id);
+        
         $usrs = User::join('profile_users','profile_users.user_id','=','users.id')
-        ->select('users.email','profile_users.*',)
+        ->select('users.id','users.email','profile_users.*',)
         ->where('profile_users.user_id','=',$id)
         ->get();
 
 
         //print_r($usrs);
-        return view('users.show',compact('usrs'));
+        return view('users.show',compact('usrs','id'));
     }
 
     /**

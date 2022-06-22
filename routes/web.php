@@ -46,6 +46,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('home');
 Route::get('/estudiantes', [App\Http\Controllers\HomeController::class, 'indexEstudiantes'])->name('student');
 Route::get('/eventos', [App\Http\Controllers\HomeController::class, 'indexEventos'])->name('eventos');
+Route::get('/reset/{id}', [App\Http\Controllers\ResetPaswordController::class, 'index'])->name('reset');
+Route::post('/resetpasword/{id}', [App\Http\Controllers\ResetPaswordController::class, 'resetpasword'])->name('resetpasword');
 
 
 Route::post('validation',[UsersController::class,'validation'])->middleware('auth', 'Authenticate')->name('validation');

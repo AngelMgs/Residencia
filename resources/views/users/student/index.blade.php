@@ -42,7 +42,6 @@
 
     <nav>
         <a href="/">Inicio</a>
-        <a href="#">Eventos</a>
         <a href="#">Boleta de Calificaciones</a>
         <a href="/login">Administrativos</a>
         

@@ -35,7 +35,7 @@
               <form method="POST" action="#">
                 @csrf
                 <div class="form-outline mb-4 text-center display-6">
-                  <label class="form-label">Acceso para Alumnos</label>
+                  <label class="form-label">Acceso a Personal Administrativo</label>
                 </div>  
                 <!-- Email input -->
                 <div class="form-outline mb-4">
