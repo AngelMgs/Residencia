@@ -3,9 +3,20 @@
 @section('content')
 <div class="container">
 
+  @if (session('success'))
+    <div id="alert1" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{ session('success') }}</strong>
+        <button id ="btn1"type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif 
 
     <div class="row">
+      
+
       <div class="col-sm">
+        
         <div class="text-center"><img src="{{asset('img/form/logo-segc.png')}}" alt=""></div>  
       </div>
 
@@ -116,4 +127,7 @@
     day = date.getDate();
     document.getElementById("hrp-fecha").innerHTML = day + "/" + month + "/" + year;
 </script>
+
+
+
 @endsection

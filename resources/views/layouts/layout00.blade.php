@@ -113,7 +113,7 @@
             <li>
                 @can('record_index')
                 <div class="icon-links">
-                    <a href="{{ route('records.index') }}">
+                    <a href="{{ route('forms3.index') }}">
                         <i class='bx bx-folder'></i>
                         <span class="link_name">Escritos</span>
                     </a>
@@ -122,7 +122,7 @@
 
                 <ul class="sub-menu">
                     @can('record_index')
-                    <li><a class="link_name" href="{{ route('records.index') }}">Escritos</a></li>
+                    <li><a class="link_name" href="{{ route('forms3.index') }}">Escritos</a></li>
                     @endcan
                 </ul>    
             </li>
@@ -132,7 +132,7 @@
             <li>
                 @can('record_index')
                 <div class="icon-links">
-                    <a href="{{ route('records.index') }}">
+                    <a href="{{ route('forms2.index') }}">
                         <i class='bx bx-folder'></i>
                         <span class="link_name">Red de Apoyo IA</span>
                     </a>
@@ -141,7 +141,7 @@
 
                 <ul class="sub-menu">
                     @can('record_index')
-                    <li><a class="link_name" href="{{ route('records.index') }}">Red de Apoyo IA</a></li>
+                    <li><a class="link_name" href="{{ route('forms2.index') }}">Red de Apoyo IA</a></li>
                     @endcan
                 </ul> 
             </li>

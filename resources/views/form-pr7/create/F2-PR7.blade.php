@@ -3,12 +3,13 @@
 @section('content')
 <div class="container">
 
-<form action="{{ route('forms.store') }}" method="post"> 
+<form action="{{ route('forms3.store') }}" method="post"> 
     @csrf
     <div class="row">
 
-        <input  name="name" type="hidden" value="HojaDelDiario1">
-        <input  name="record_id" type="hidden" value="">
+        <input  name="name" type="hidden" value="ACTAESCOLAR">
+        <input  name="hrp_es" type="hidden" id="hrp_es">
+        
 
       <div class="col-sm">
         <div class="text-center"><img src="{{asset('img/form/logo-segc.png')}}" alt=""></div>  
@@ -48,12 +49,10 @@
     <div class="container">
         <div class="row">
           
-          <div class="col-sm">
-            En la ciudad de Tuxtla Gutiérrez, Chiapas, siendo las ______ hrs. Del día _____ de ______________ del 2002______, en las instalaciones que ocupa la secretaría académica de la Escuela Preparatoria Número 7 del Estado, cita en la carretera panamericana km. 1082 s/n de esta ciudad, habiéndose dado cumplimiento al Reglamento Escolar Vigente.
-            <br><b>Se presentaron los (las) alumnos:</b>
-            <div class="row">
-                <input type="text" name="hrp_nombre"  class="form-control" >
-            </div>
+          <div class="col-sm" id="hrp_hora">
+          </div>
+          <div class="row">
+            <input type="text" name="hrp_alumnos"  class="form-control">
           </div>
     
         </div>
@@ -61,7 +60,7 @@
             <div class="col-sm">
               <br><b>Manifestando que:</b>
               <div class="row">
-                  <input type="text" name="hrp_nombre"  class="form-control" >
+                  <input type="text" name="hrp_manifiesto"  class="form-control" >
               </div>
             </div>
           </div>
@@ -71,7 +70,7 @@
             <div class="col-sm">
                 Por lo tanto. Ya que dicha conducta del (os) alumno (s) constituye una infracción al reglamento escolar vigente para la institución educativa, con apoyo en dicho ordenamiento y conforme al contenido de los artículos 6° Fracción III en relación al 3° Fracción I de la constitución Política del Estado de Chiapas se procede a hacer llamado de atención por escrito exhortándolos a:
               <div class="row">
-                  <input type="text" name="hrp_nombre"  class="form-control" >
+                  <input type="text" name="hrp_conducta"  class="form-control" >
               </div>
             </div>
       
@@ -82,7 +81,7 @@
             <div class="col-sm">
                 Y respetar el reglamento escolar vigente, haciéndolas del conocimiento que aplicara la sanción descrita a continuación: 
                 <div class="row">
-                  <input type="text" name="hrp_nombre"  class="form-control" >
+                  <input type="text" name="hrp_reglamento"  class="form-control" >
               </div>
             </div>
       
@@ -93,7 +92,7 @@
             <div class="col-sm">
                 Cerrando la presente acta, firmando para constancia los que en ella intervinieron.
                 <div class="row">
-                  <input type="text" name="hrp_nombre"  class="form-control" >
+                  <input type="text" name="hrp_firma"  class="form-control" >
               </div>
             </div>
       
@@ -156,7 +155,9 @@
 
    
 
-    
+      <div class="card-footer ml-auto mr-auto">
+        <button class="text-grey-lighter font-bold py-3 px-6 rounded text-xs bg-blue-300 hover:bg-blue-dark">Guardar</button>
+    </div> 
 
       
 
@@ -170,6 +171,11 @@
     year = date.getFullYear();
     month = date.getMonth() + 1;
     day = date.getDate();
-    document.getElementById("hrp-fecha").innerHTML = day + "/" + month + "/" + year;
+    hrs = date.getHours();
+    mn = date.getMinutes();
+
+    document.getElementById("hrp_hora").innerHTML = "En la ciudad de Tuxtla Gutiérrez, Chiapas, siendo las "+ hrs +" hrs. Del día "+ day +" de "+ month +" del "+year+", en las instalaciones que ocupa la secretaría académica de la Escuela Preparatoria Número 7 del Estado, cita en la carretera panamericana km. 1082 s/n de esta ciudad, habiéndose dado cumplimiento al Reglamento Escolar Vigente. <br><b>Se presentaron los (las) alumnos:</b>";
+    document.getElementById("hrp_es").value = "En la ciudad de Tuxtla Gutiérrez, Chiapas, siendo las "+ hrs +" hrs. Del día "+ day +" de "+ month +" del "+year+", en las instalaciones que ocupa la secretaría académica de la Escuela Preparatoria Número 7 del Estado, cita en la carretera panamericana km. 1082 s/n de esta ciudad, habiéndose dado cumplimiento al Reglamento Escolar Vigente. <br><b>Se presentaron los (las) alumnos:</b>";
+    ;
 </script>
 @endsection

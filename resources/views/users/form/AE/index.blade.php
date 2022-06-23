@@ -6,34 +6,21 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title">Formatos Agregados</h4>
-                        <p class="card-category">Formatos del Expediente {{$name}}</p>
-                        <br>
+                        <h4 class="card-title">Formatos de Acta Escolar</h4>
                         <div class="text-left">
-                            <div class="text-left">
-                                <h2 class="card-category">Seleccione un Formato Para Agregar al Expediente:</h2>   
-                            <form action="{{ route('forms.create') }}" method="GET">
-                                <input  name="record_id" type="hidden" value="{{$id}}">
-                                <select name="fm_pr7" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                                    <option value="HRP">Hoja de Regitro Personal</option>
-                                    <option value="HD1">Hoja del Diario 1</option>
-                                    <option value="HD2">Hoja del Diario 2</option>
-                                  </select>
-                                  <div class="text-left">
-                                    <button class="text-grey-lighter font-bold py-3 px-6 rounded text-xs bg-green-300 hover:bg-blue-dark">Añadir Formato</button>
-                                  </div>  
-                            </form>
-                            </div>
-                        </div>
+                            <a class="text-grey-lighter font-bold py-3 px-6 rounded text-xs bg-green-300 hover:bg-blue-dark" href="{{ route('forms3.create') }}">Añadir Formato</a>
+                        </div> 
                     </div>
 
                     
                     <div class="card-body">
                         @if (session('success'))
-                            <div class="alert alert-primary" role="success">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                {{ session('success') }}
-                            </div>
+                        <div id="alert1" class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>{{ session('success') }}</strong>
+                            <button id ="btn1"type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                         @endif
 
                         <div class="table-responsive mt-3">
@@ -52,24 +39,21 @@
 
                                             <td>
                                                 @can('form_show') 
-                                                <a href="{{ route('forms.show', $form["id"]) }}"
+                                                <a href="{{ route('forms3.show', $form["id"]) }}"
                                                 class="text-grey-lighter font-bold py-2 px-3 rounded text-xs bg-blue-300 hover:bg-blue-dark">Ver Formato</i></a>
                                                 @endcan
                                             </td>
                                             <td>    
                                                 @can('form_edit')  
-                                                <form action="{{ route('forms.edit',$form["id"]) }}" method="GET">
-                                                    <input  name="record_id" type="hidden" value="{{$id}}">
-                                                    <button class="text-grey-lighter font-bold py-2 px-3 rounded text-xs bg-green-300 hover:bg-blue-dark">Editar Formato</button>
-                                                </form>
+                                                <a href="{{ route('forms3.edit', $form["id"]) }}"
+                                                class="text-grey-lighter font-bold py-2 px-3 rounded text-xs bg-green-300 hover:bg-blue-dark">Editar</i></a>
+                                                @endcan
                                             </td>
                                             <td>    
-                                                @endcan
                                                 @can('record_destroy')
-                                                    <form action="{{ route('forms.destroy',$form["id"]) }}" method="POST">
+                                                    <form action="{{ route('forms3.destroy',$form["id"]) }}" method="POST">
                                                         @csrf
                                                         @method('delete')
-                                                            <input  name="record_id" type="hidden" value="{{$id}}">
                                                             <button>
                                                                 <svg class="w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1"
                                                                     fill="none" stroke="currentColor" viewBox="0 0 24 24"

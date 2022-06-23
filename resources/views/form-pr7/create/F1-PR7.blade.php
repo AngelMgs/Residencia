@@ -3,12 +3,11 @@
 @section('content')
 <div class="container">
 
-<form action="{{ route('forms.store') }}" method="post"> 
+<form action="{{ route('forms2.store') }}" method="post"> 
     @csrf
     <div class="row">
 
-        <input  name="name" type="hidden" value="HojaDelDiario1">
-        <input  name="record_id" type="hidden" value="">
+        <input  name="name" type="hidden" value="REDDEAPOYOEINTITUCIONESEXTERNAS">
 
       <div class="col-sm">
         <div class="text-center"><img src="{{asset('img/form/logo-segc.png')}}" alt=""></div>  
@@ -63,10 +62,10 @@
             DEL SEGURO SOCIAL
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_d1" ></textarea>
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_t1" ></textarea>
         </div>
     </div>
     
@@ -77,10 +76,10 @@
             Y DEL EMPRENDIMIENTO
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_d2" ></textarea>
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_t2" ></textarea>
         </div>
     </div>
 
@@ -90,10 +89,10 @@
             JUVENIL 
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_d3" ></textarea>
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_t3" ></textarea>
         </div>
     </div>
 
@@ -117,10 +116,10 @@
             CENTROS UNEME-CAPA
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_d4" ></textarea>
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_t4" ></textarea>
         </div>
     </div>
 
@@ -129,10 +128,10 @@
             CENTROS UNEME CISAMEN
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_d5" ></textarea>
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_t5" ></textarea>
         </div>
     </div>
 
@@ -145,14 +144,16 @@
             DE CHIAPAS
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_d6" ></textarea>
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_t6" ></textarea>
         </div>
     </div>
 
-      
+    <div class="card-footer ml-auto mr-auto">
+        <button class="text-grey-lighter font-bold py-3 px-6 rounded text-xs bg-blue-300 hover:bg-blue-dark">Guardar</button>
+    </div>  
 
 </form>
 

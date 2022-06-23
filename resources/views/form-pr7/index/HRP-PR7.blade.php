@@ -2,8 +2,18 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
 
+    
+    @if (session('success'))
+    <div id="alert1" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{ session('success') }}</strong>
+        <button id ="btn1"type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif 
+    
+    <div class="row">
       <div class="col-sm">
         <div class="text-center"><img src="{{asset('img/form/logo-segc.png')}}" alt=""></div>  
       </div>
@@ -362,4 +372,7 @@
 
 </div>
 
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 @endsection

@@ -3,12 +3,17 @@
 @section('content')
 <div class="container">
 
-<form action="{{ route('forms.store') }}" method="post"> 
-    @csrf
-    <div class="row">
+    @if (session('success'))
+    <div id="alert1" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{ session('success') }}</strong>
+        <button id ="btn1"type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif 
 
-        <input  name="name" type="hidden" value="HojaDelDiario1">
-        <input  name="record_id" type="hidden" value="">
+
+    <div class="row">
 
       <div class="col-sm">
         <div class="text-center"><img src="{{asset('img/form/logo-segc.png')}}" alt=""></div>  
@@ -63,10 +68,10 @@
             DEL SEGURO SOCIAL
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_d1']}}</textarea>
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_t1']}}</textarea>
         </div>
     </div>
     
@@ -77,10 +82,10 @@
             Y DEL EMPRENDIMIENTO
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_d2']}}</textarea>
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_t2']}}</textarea>
         </div>
     </div>
 
@@ -90,10 +95,10 @@
             JUVENIL 
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_d3']}}</textarea>
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_t3']}}</textarea>
         </div>
     </div>
 
@@ -117,10 +122,10 @@
             CENTROS UNEME-CAPA
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_d4']}}</textarea>
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_t4']}}</textarea>
         </div>
     </div>
 
@@ -129,10 +134,10 @@
             CENTROS UNEME CISAMEN
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_d5']}}</textarea>
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_t5']}}</textarea>
         </div>
     </div>
 
@@ -145,16 +150,12 @@
             DE CHIAPAS
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_d6']}}</textarea>
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" ></textarea>
+            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_t6']}}</textarea>
         </div>
     </div>
-
-      
-
-</form>
 
 
 </div>

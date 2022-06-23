@@ -7,8 +7,7 @@
     @csrf
     <div class="row">
 
-        <input  name="name" type="hidden" value="HojaDelDiario1">
-        <input  name="record_id" type="hidden" value="">
+        
 
       <div class="col-sm">
         <div class="text-center"><img src="{{asset('img/form/logo-segc.png')}}" alt=""></div>  
@@ -46,13 +45,22 @@
     <br> 
         
     <div class="container">
+    
+    @if (session('success'))
+    <div id="alert1" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{ session('success') }}</strong>
+        <button id ="btn1"type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif 
+
         <div class="row">
           
           <div class="col-sm">
-            En la ciudad de Tuxtla Gutiérrez, Chiapas, siendo las ______ hrs. Del día _____ de ______________ del 2002______, en las instalaciones que ocupa la secretaría académica de la Escuela Preparatoria Número 7 del Estado, cita en la carretera panamericana km. 1082 s/n de esta ciudad, habiéndose dado cumplimiento al Reglamento Escolar Vigente.
-            <br><b>Se presentaron los (las) alumnos:</b>
+            {{$info['hrp_es']}}
             <div class="row">
-                <input type="text" name="hrp_nombre"  class="form-control" >
+                <input type="text" name="hrp_alumnos"  class="form-control" value="{{$info['hrp_alumnos']}}"  readonly>
             </div>
           </div>
     
@@ -61,7 +69,7 @@
             <div class="col-sm">
               <br><b>Manifestando que:</b>
               <div class="row">
-                  <input type="text" name="hrp_nombre"  class="form-control" >
+                  <input type="text" name="hrp_manifiesto"  class="form-control" value="{{$info['hrp_manifiesto']}}"  readonly>
               </div>
             </div>
           </div>
@@ -71,7 +79,7 @@
             <div class="col-sm">
                 Por lo tanto. Ya que dicha conducta del (os) alumno (s) constituye una infracción al reglamento escolar vigente para la institución educativa, con apoyo en dicho ordenamiento y conforme al contenido de los artículos 6° Fracción III en relación al 3° Fracción I de la constitución Política del Estado de Chiapas se procede a hacer llamado de atención por escrito exhortándolos a:
               <div class="row">
-                  <input type="text" name="hrp_nombre"  class="form-control" >
+                  <input type="text" name="hrp_conducta"  class="form-control" value="{{$info['hrp_conducta']}}"  readonly>
               </div>
             </div>
       
@@ -82,7 +90,7 @@
             <div class="col-sm">
                 Y respetar el reglamento escolar vigente, haciéndolas del conocimiento que aplicara la sanción descrita a continuación: 
                 <div class="row">
-                  <input type="text" name="hrp_nombre"  class="form-control" >
+                  <input type="text" name="hrp_nombre"  class="form-control" value="{{$info['hrp_reglamento']}}"  readonly>
               </div>
             </div>
       
@@ -93,7 +101,7 @@
             <div class="col-sm">
                 Cerrando la presente acta, firmando para constancia los que en ella intervinieron.
                 <div class="row">
-                  <input type="text" name="hrp_nombre"  class="form-control" >
+                  <input type="text" name="hrp_nombre"  class="form-control" value="{{$info['hrp_firma']}}"  readonly>
               </div>
             </div>
       

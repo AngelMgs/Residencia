@@ -52,6 +52,7 @@
                 @endcan 
             </td>
             <td class="p-2">
+                @if ($user->id != Auth::id())
                 @can('user_destroy')
                 <div class="justify-center">
                     <form action="/users/{{$user->id}}" method="POST">
@@ -69,6 +70,7 @@
                     </form>
                 </div>    
                 @endcan
+                @endif
             </td>
             
         </tr>

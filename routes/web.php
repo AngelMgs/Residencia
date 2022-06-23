@@ -6,6 +6,8 @@ use  App\Http\Controllers\PermissionController;
 use  App\Http\Controllers\RecordController;
 use  App\Http\Controllers\FileController;
 use  App\Http\Controllers\FormController;
+use  App\Http\Controllers\Form2Controller;
+use  App\Http\Controllers\Form3Controller;
 use  App\Http\Controllers\PageController;
 use  App\Http\Controllers\DomainController;
 use  App\Http\Controllers\PageRedirectController;
@@ -34,6 +36,8 @@ Route::resource('users',UsersController::class)->middleware('auth', 'Authenticat
 Route::resource('permission',PermissionController::class)->middleware('auth', 'Authenticate');    
 Route::resource('records',RecordController::class)->middleware('auth', 'Authenticate');
 Route::resource('forms',FormController::class)->middleware('auth', 'Authenticate'); 
+Route::resource('forms2',Form2Controller::class)->middleware('auth', 'Authenticate');
+Route::resource('forms3',Form3Controller::class)->middleware('auth', 'Authenticate'); 
 Route::resource('files',FileController::class)->middleware('auth', 'Authenticate');  
 Route::resource('pages',PageController::class)->middleware('auth', 'Authenticate');  
 Route::resource('events',EventController::class)->middleware('auth', 'Authenticate');  
@@ -48,6 +52,9 @@ Route::get('/estudiantes', [App\Http\Controllers\HomeController::class, 'indexEs
 Route::get('/eventos', [App\Http\Controllers\HomeController::class, 'indexEventos'])->name('eventos');
 Route::get('/reset/{id}', [App\Http\Controllers\ResetPaswordController::class, 'index'])->name('reset');
 Route::post('/resetpasword/{id}', [App\Http\Controllers\ResetPaswordController::class, 'resetpasword'])->name('resetpasword');
+
+
+Route::get('/pdf/{id}', [App\Http\Controllers\PDFController::class, 'generatepdf'])->name('pdf');
 
 
 Route::post('validation',[UsersController::class,'validation'])->middleware('auth', 'Authenticate')->name('validation');
