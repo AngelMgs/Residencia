@@ -20,7 +20,7 @@
     @forelse ($files as $file)
     <div class="max-w-auto bg-white rounded overflow-hidden shadow-lg">
         <div class="flex justify-between items-center">
-            @can('record_destroy')
+            @can('files_destroy')
                 <div class="justify-center">
                     <form action="/files/{{$file->id}}" method="POST">
                         @csrf
@@ -36,13 +36,14 @@
                         </button>
                     </form>
                 </div>    
-                @endcan
+            @endcan
         </div>
         <img
         src="{{asset($file->url)}}"
         alt="Table Full of Spices"
         class="w-70 mb-2 mb-md-6 shadow-1-strong rounded "
       />
+        
       
       
     </div> 

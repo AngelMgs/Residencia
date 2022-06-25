@@ -24,6 +24,7 @@ class FileController extends Controller
     {
         //
         $files = File::paginate(3);
+        //return $files;
         return view('users.files.index',compact('files'));
 
     }
@@ -52,9 +53,10 @@ class FileController extends Controller
             'file' => 'required|image|max:2048'
         ]);
 
-        $img = $request->file('file')->store('public/galery');
+        $img = $request->file('file')->store('public/');
         $url = Storage::url($img);
 
+        
         File::create([
             'url' => $url
         ]);
