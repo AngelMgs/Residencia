@@ -58,7 +58,7 @@
     </div>
 
     <div class="row">
-        <label>FECHA:<b><div name="hrp_fecha" ></p></b></label>
+        <label>FECHA:<b><div name="hrp_fecha"></b></label>
     </div>
     <br>
     <div class="row">
@@ -125,7 +125,9 @@
     year = date.getFullYear();
     month = date.getMonth() + 1;
     day = date.getDate();
-    document.getElementById("hrp-fecha").innerHTML = day + "/" + month + "/" + year;
+    document.getElementById("hrp_fecha").innerHTML = day + "/" + month + "/" + year;
+
+    document.getElementById("hrp_es").value = day + "/" + month + "/" + year;
 </script>
 
 

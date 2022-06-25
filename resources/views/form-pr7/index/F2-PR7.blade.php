@@ -3,8 +3,6 @@
 @section('content')
 <div class="container">
 
-<form action="{{ route('forms.store') }}" method="post"> 
-    @csrf
     <div class="row">
 
         
@@ -168,7 +166,6 @@
 
       
 
-</form>
 
 
 </div>

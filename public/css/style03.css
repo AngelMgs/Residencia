@@ -1,0 +1,27 @@
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+header .logo1{
+    display: flex;
+    margin-left: 80px;
+}
+header .logo1 img{
+    height: 120px;
+}
+header .descripcion{
+    display: flex;
+}
+header .logo2{
+    display: flex;
+}
+header .logo2 img{
+    height: 100px;
+    margin-right: 80px;
+    
+}
+
+header .descripcion p{
+    text-align: center;
+}

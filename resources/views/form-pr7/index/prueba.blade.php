@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" 
@@ -10,132 +11,146 @@
 
 </head>
 <body>
+    <style>
+        @page {
+            margin: 0cm 0cm;
+            font-family: Arial;
+        }
 
-    <div class="container">
+        body {
+            margin: 3cm 2cm 2cm;
+        }
+
+        header {
+            position: fixed;
+            top: 0cm;
+            left: 0cm;
+            right: 0cm;
+            height: 2cm;
+            text-align: center;
+            line-height: 15px;
+        }
+
+        header .logo1 img{
+            position: fixed;
+            top: 0cm;
+            left: 2cm;
+            right: 0cm;
+            height: 2cm;
+        }
+        header .descripcion p{
+            position: fixed;
+            top: 0cm;
+            left: 0cm;
+            right: 0cm;
+            height: 0cm;
+            text-align: center;
+            font-size: 10px;
+            
+        }
+
+        header .logo2 img{
+            position: fixed;
+            top: 0cm;
+            left: 15cm;
+            right: 0cm;
+            height: 2cm;
+
+        }
         
-        <div class="row">
-          <div class="col-sm">
-            <div class="text-center"><img src="{{asset('img/form/logo-segc.png')}}" alt=""></div>  
-          </div>
-    
-          <div class="col-sm">
-            <p class="text-center"><b>SUBSECRETARIA DE EDUACION ESTATAL</b>
-            <br>
-            DIRECCIÓN DE EDUACIÓN MEDIA
-            <br>
-            DEPARTAMENTO PSICOPEDAGÓGICO
-            <br>
-            ESCUELA PREPARATORIA NUM. 7 DEL ESTADO 
-            <br>
-            CLAVE: 07EBH00899Z T/M CLAVE: 07EBH0067N T/M 
-            </p>
-          </div>
-    
-          <div class="col-sm">
-            <div class="text-center "><img src="{{asset('img/rec2.png')}}" width="180"></div>  
-          </div>
-        </div>
-    
-        <div class="row">
-            <div class="col-sm">
+    </style>
+    <main>
+        <header>
+            <div class="logo1">
+                <img src="{{ public_path('img/form/logo-segc.png')}}">
             </div>
-            <div class="col-sm">
-              <p class="text-center"><b><u>HOJA DE REGISTRO PERSONAL</u></b></p>
+            <div class="descripcion">
+                <p><b>SUBSECRETARIA DE EDUACION ESTATAL</b>
+                    <br>
+                    DIRECCIÓN DE EDUACIÓN MEDIA
+                    <br>
+                    DEPARTAMENTO PSICOPEDAGÓGICO
+                    <br>
+                    ESCUELA PREPARATORIA NUM. 7 DEL ESTADO 
+                    <br>
+                    CLAVE: 07EBH00899Z T/M CLAVE: 07EBH0067N T/M 
+                </p>
             </div>
-            <div class="col-sm">
+            <div class="logo2">
+                <img src="{{public_path('img/rec2.png')}}" >
             </div>
-        </div>
-    
-        <div class="row">
-            <div class="col-sm">
-            </div>
-            <div class="col-sm">
-            </div>
-            <div class="col-sm">
-                <div class="form-group form-inline">
-                    <label>TURNO:</label>
-                    <select name="hrp_turno" class="form-select" aria-label="Default select example" >
-                        <option value="{{$info['hrp_turno']}}"><p><u>{{$info['hrp_turno']}}</u></p></option>
-                    </select>
-                </div>    
-            </div>
-        </div>
-    
-        <div class="row">
-            <label >NOMBRE DEL ALUMNO:</label>
-            <div class="col-sm-12">
-              <input type="text" name="hrp_nombre" class="form-control" value="{{$info['hrp_nombre']}}" readonly>
-            </div>
-        </div>
-    
-        <div class="row">
-            <div class="col-md-3">
-                <label class="form-label">TELEFONO:</label>
-                <input type="number" class="form-control" name="hrp_telefono" value="{{$info['hrp_telefono']}}" readonly>
-            </div>
-    
-            <div class="col-md-3">
-                <label class="form-label">GRADO:</label>
-                <input type="text" class="form-control" name="hrp_grado" value="{{$info['hrp_grado']}}"  readonly>
-            </div>
-    
-            <div class="col-md-3">
-                <label class="form-label">GRUPO:</label>
-                <input type="text" class="form-control" name="hrp_grupo" value="{{$info['hrp_grupo']}}" readonly>
-            </div>
-    
-            <div class="col-md-3">
-                <label class="form-label">SEXO:</label>
-                <select name="hrp_sexo" class="form-select" aria-label="Default select example">
-                    <option value="{{$info['hrp_sexo']}}"><p><u>{{$info['hrp_sexo']}}</u></p></option>
-                </select>
-            </div>
-        </div>
-    
-        <div class="row">
-            <div class="col-md-3">
-                <label class="form-label">EDAD:</label>
-                <input type="number" class="form-control" name="hrp_edad" value="{{$info['hrp_edad']}}" readonly>
-            </div>
-    
-            <div class="col-md-6">
-                <label class="form-label">NOMBRE DEL TUTOR:</label>
-                <input type="text" class="form-control" name="hrp_nombre-tutor" value="{{$info['hrp_nombre-tutor']}}" readonly>
-            </div>
-        </div>
-    
-        <div class="row">
-            <div class="col-md-3">
-                <label class="form-label">TELEFONO DEL TUTOR:</label>
-                <input type="number" class="form-control" name="hrp_telefono" value="{{$info['hrp_telefono']}}" readonly>
-            </div>
-    
-            <div class="col-md-6">
-                <label class="form-label">PSICOLOGO A CARGO:</label>
-                <input type="text" class="form-control" name="hrp_nombre-p" value="{{$info['hrp_nombre-p']}}" readonly>
-            </div>
-        </div>
-    
-        <div class="row">
-            <div class="col-sm">
-            </div>
-            <div class="col-sm">
-              <p class="text-center"><b><u>MOTIVO DE CANALIZACIÓN</u></b></p>
-            </div>
-            <div class="col-sm">
-            </div>
-        </div>
-    
-        <div class="row">
-            <div class="col-sm">
-                <p class="small">Indicadores que afectan el rendimiento académica o de disiplina de las y los estudiantes.</p>
-            </div>
-            <div class="col-sm">
-            </div>
-        </div>
-        <!------------------------------------------------------------------------->
-    
-        <div class="row">
+        </header>
+        <div class="container">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>NOMBRE DEL ALUMNO:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{$info['hrp_nombre']}}</td>
+                  </tr>
+
+                </tbody>
+            </table>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>TELEFONO</th>
+                        <th>GRADO</th>
+                        <th>GRUPO</th>
+                        <th>SEXO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{$info['hrp_telefono']}}</td>
+                    <td>{{$info['hrp_grado']}}</td>
+                    <td>{{$info['hrp_grupo']}}</td>
+                    <td>{{$info['hrp_sexo']}}</td>
+                  </tr>
+
+                </tbody>
+            </table>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>EDAD</th>
+                        <th>NOMBRE DEL TUTOR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{$info['hrp_edad']}}</td>
+                    <td>{{$info['hrp_nombre-tutor']}}</td>
+                  </tr>
+
+                </tbody>
+            </table>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        
+                        <th>TELEFONO DEL TUTOR</th>
+                        <th>PSICOLOGO A CARGO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{$info['hrp_telefono']}}</td>
+                    <td>{{$info['hrp_nombre-p']}}</td>
+                  </tr>
+
+                </tbody>
+            </table>
+
+            <p class="text-center"><b><u>MOTIVO DE CANALIZACIÓN</u></b></p>
+            <p class="small text-left">Indicadores que afectan el rendimiento académica o de disiplina de las y los estudiantes.</p>
+            
             <table class="table table-bordered">
                 <tbody>
                   <tr>
@@ -161,9 +176,6 @@
                             @endif
                         </div>
                     </td>
-                  </tr>
-    
-                  <tr>
                     <td>
                         <div class="form-check">
                             @if( in_array('CSN',$info['hrp_opc']) )
@@ -175,6 +187,8 @@
                             @endif
                         </div>
                     </td>
+                  </tr>                  
+                  <tr>
                     <td>
                         <div class="form-check">
                             @if( in_array('PD',$info['hrp_opc']) )
@@ -186,9 +200,6 @@
                             @endif
                         </div>
                     </td>
-                  </tr>
-                  
-                  <tr>
                     <td>
                         <div class="form-check">
                             @if( in_array('PF',$info['hrp_opc']) )
@@ -236,9 +247,6 @@
                             @endif
                         </div>
                     </td>
-                  </tr>
-    
-                  <tr>
                     <td>
                         <div class="form-check">
                             @if( in_array('PE',$info['hrp_opc']) )
@@ -250,6 +258,8 @@
                             @endif
                         </div>
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                         <div class="form-check">
                             @if( in_array('EI',$info['hrp_opc']) )
@@ -261,9 +271,6 @@
                             @endif
                         </div>
                     </td>
-                  </tr>
-    
-                  <tr>
                     <td>
                         <div class="form-check">
                             @if( in_array('SPC',$info['hrp_opc']) )
@@ -286,6 +293,7 @@
                             @endif
                         </div>
                     </td>
+                    
                   </tr>
     
                   <tr>
@@ -311,9 +319,6 @@
                             @endif
                         </div>
                     </td>
-                  </tr>
-    
-                  <tr>
                     <td>
                         <div class="form-check">
                             @if( in_array('VIEE',$info['hrp_opc']) )
@@ -327,55 +332,44 @@
                         </div>
                     </td>
                   </tr>
+    
+                 
                 </tbody>
               </table>
+              <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        
+                        <th><b><u>ACCIONES TOMADAS</u></b></</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                        {{$info['hrp_acciones']}}
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        
+                        <th><b><u>RECOMENDACIONES</u></b></</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                        {{$info['hrp_recomendaciones']}}
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+    
         </div>
-    
-        <!------------------------------------------------------------------------->
-    
-        <div class="row">
-            <div class="col-sm">
-            </div>
-            <div class="col-sm">
-              <p class="text-center"><b><u>ACCIONES TOMADAS</u></b></p>
-            </div>
-            <div class="col-sm">
-            </div>
-        </div>
-    
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <textarea class="form-control" rows="5" name="hrp_acciones" readonly>{{$info['hrp_acciones']}}</textarea>
-                  </div>
-            </div>
-        </div>
-    
-        <div class="row">
-            <div class="col-sm">
-            </div>
-            <div class="col-sm">
-              <p class="text-center"><b><u>RECOMENDACIONES</u></b></p>
-            </div>
-            <div class="col-sm">
-            </div>
-        </div>
-    
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <textarea class="form-control" rows="5" name="hrp_recomendaciones" readonly>{{$info['hrp_recomendaciones']}}</textarea>
-                  </div>
-            </div>
-        </div>
-    
-    
-    </div>
-    
-    
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
-    
+    </main>
+
+
 </body>
 </html>

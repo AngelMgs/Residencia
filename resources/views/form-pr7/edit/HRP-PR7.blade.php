@@ -111,7 +111,7 @@
   
           <div class="col-md-6">
               <label class="form-label">PSICOLOGO A CARGO:</label>
-              <input type="text" class="form-control" name="hrp_nombre-tutor" value="{{$info['hrp_nombre-tutor']}}" >
+              <input type="text" class="form-control" name="hrp_nombre-p" value="{{$info['hrp_nombre-p']}}" >
           </div>
       </div>
   
