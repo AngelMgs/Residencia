@@ -53,7 +53,7 @@ class FileController extends Controller
             'file' => 'required|image|max:2048'
         ]);
 
-        $img = $request->file('file')->store('public/');
+        $img = $request->file('file')->store('public/galery');
         $url = Storage::url($img);
 
         
