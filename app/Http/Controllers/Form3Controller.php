@@ -22,8 +22,7 @@ class Form3Controller extends Controller
     public function index()
     {
         //
-        $forms = Form::where('forms.name','=','ACTAESCOLAR')->get();
-
+        $forms = Form::whereBetween('forms.name', ['ACTAESCOLAR','SOLICITUDDEREQUERIMIENTO','ACTAESCOLAR'])->get();
         return view('users.form.AE.index', compact('forms'));            
     }
 
@@ -32,10 +31,21 @@ class Form3Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
-        return view('form-pr7.create.F2-PR7');
+        if($request->fm_pr7 == 'AE'){
+            $ruta = 'form-pr7.create.F2-PR7';
+
+        }elseif($request->fm_pr7 == 'SE'){
+            $ruta = 'form-pr7.create.F3-PR7';
+
+        }elseif($request->fm_pr7 == 'CN'){
+            $ruta = 'form-pr7.create.F4-PR7';
+        }
+
+        return view($ruta);
+
     }
 
     /**
@@ -49,11 +59,11 @@ class Form3Controller extends Controller
         //
 
         $form = $request->all();
-        //return $form;
+        
        
         $name = $request->name;
         $form = array_splice($form ,2);
-
+        //return $form;
         
         $frm = new Form();
         $frm->name = $name;
@@ -79,7 +89,19 @@ class Form3Controller extends Controller
         $name = $form->name;
         $info = json_decode($info,true);
 
-        return view('form-pr7.index.F2-PR7',compact('info'));
+        if($name == 'ACTAESCOLAR'){
+            $ruta = 'form-pr7.index.F2-PR7';
+
+        }elseif($name == 'SOLICITUDDEREQUERIMIENTO'){
+            $ruta = 'form-pr7.index.F3-PR7';
+
+        }elseif($name == 'CANALIZACION'){
+            $ruta = 'form-pr7.index.F4-PR7';
+        }
+
+        
+        return view($ruta,compact('info','id'));
+
     }
 
     /**
@@ -97,7 +119,18 @@ class Form3Controller extends Controller
         $name = $form->name;
         $info = json_decode($info,true);
 
-        return view('form-pr7.edit.F2-PR7',compact('info','id'));
+        if($name == 'ACTAESCOLAR'){
+            $ruta = 'form-pr7.edit.F2-PR7';
+
+        }elseif($name == 'SOLICITUDDEREQUERIMIENTO'){
+            $ruta = 'form-pr7.edit.F3-PR7';
+
+        }elseif($name == 'CANALIZACION'){
+            $ruta = 'form-pr7.edit.F4-PR7';
+        }
+
+        
+        return view($ruta,compact('info','id'));
     }
 
     /**

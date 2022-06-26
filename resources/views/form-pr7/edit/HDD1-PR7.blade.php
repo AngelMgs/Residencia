@@ -32,6 +32,7 @@
     <br>
     
     <input  name="record_id" type="hidden" value="{{$record_id}}">
+    <input  name="hrp_es" type="hidden" id="hrp_es" value="{{$info['hrp_fecha']}}">
 
     <div class="row">
         <div class="col-sm">
@@ -119,11 +120,5 @@
       </div>
 </form>
 </div>    
-<script>
-    date = new Date();
-    year = date.getFullYear();
-    month = date.getMonth() + 1;
-    day = date.getDate();
-    document.getElementById("hrp_fecha").innerHTML = day + "/" + month + "/" + year;
-</script>
+
 @endsection

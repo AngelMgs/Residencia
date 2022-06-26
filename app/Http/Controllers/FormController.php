@@ -43,7 +43,14 @@ class FormController extends Controller
 
         }elseif($request->fm_pr7 == 'HD2'){
             $ruta = 'form-pr7.create.HDD1-PR7';
+        }elseif($request->fm_pr7 == 'HC1'){
+
+            $ruta = 'form-pr7.create.HC0-PR7';
+
+        }elseif($request->fm_pr7 == 'HC2'){
+            $ruta = 'form-pr7.create.HC1-PR7';
         }
+        
         return view($ruta,compact('record_id'));
     }
 
@@ -59,7 +66,10 @@ class FormController extends Controller
         $form = $request->all();
         $name = $request->name;
         $id  = $request->record_id;
+        
         $form = array_splice($form ,3);
+        //return $form;
+        
 
         $frm = new Form();
         $frm->name = $name;
@@ -100,6 +110,9 @@ class FormController extends Controller
 
         }elseif($name == 'HojaDeRegitroPersonal'){
             $ruta = 'form-pr7.index.HRP-PR7';
+        }elseif($name  == 'HISTORIALCLINICO'){
+            $inf = array_merge( ['nombre' => $info['hrp_miem'], 'parentesco' =>$info['hrp_paren'], 'edad' =>$info['hrp_eda'], 'escolarida' =>$info['hrp_escol'], 'ocupacion' =>$info['hrp_ocup']]);
+            return view('form-pr7.index.HC0-PR7',compact('info','inf'));
         }
         return view($ruta,compact('info'));
     }
@@ -119,7 +132,7 @@ class FormController extends Controller
         $info = $form->info;
         $name = $form->name;
         $info = json_decode($info,true);
-
+        
         if($name == 'HojaDelDiario1'){
             $ruta = 'form-pr7.edit.HDD0-PR7';
 
@@ -128,6 +141,13 @@ class FormController extends Controller
 
         }elseif($name == 'HojaDeRegitroPersonal'){
             $ruta = 'form-pr7.edit.HRP-PR7';
+
+        }elseif($name  == 'HISTORIALCLINICO'){
+            $inf = array_merge( ['nombre' => $info['hrp_miem'], 'parentesco' =>$info['hrp_paren'], 'edad' =>$info['hrp_eda'], 'escolarida' =>$info['hrp_escol'], 'ocupacion' =>$info['hrp_ocup']]);
+            return view('form-pr7.edit.HC0-PR7',compact('info','record_id','id','inf'));
+            
+        }elseif($name  == 'HC2'){
+            $ruta = 'form-pr7.edit.HC1-PR7';
         }
         return view($ruta,compact('info','record_id','id'));
     }

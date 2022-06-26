@@ -10,7 +10,7 @@
     <div class="row">
 
       <input  name="name" type="hidden" value="ACTAESCOLAR">
-      <input  name="hrp_es" type="hidden" id="hrp_es">
+      <input  name="hrp_es" type="hidden" id="hrp_es" value="{{$info['hrp_es']}}">
       
 
     <div class="col-sm">
@@ -169,11 +169,5 @@
 
 </div>
 
-<script>
-    date = new Date();
-    year = date.getFullYear();
-    month = date.getMonth() + 1;
-    day = date.getDate();
-    document.getElementById("hrp-fecha").innerHTML = day + "/" + month + "/" + year;
-</script>
+
 @endsection

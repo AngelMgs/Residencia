@@ -56,8 +56,4 @@ Route::post('/resetpasword/{id}', [App\Http\Controllers\ResetPaswordController::
 
 Route::get('/pdf/{id}', [App\Http\Controllers\PDFController::class, 'generatepdf'])->name('pdf');
 
-Route::get('/hhh', function () {
-   return view('form-pr7.index.prueba'); 
-});
-
 Route::post('validation',[UsersController::class,'validation'])->middleware('auth', 'Authenticate')->name('validation');

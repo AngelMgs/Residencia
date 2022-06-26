@@ -24,7 +24,8 @@
           </p>
         </div>
         <input  name="record_id" type="hidden" value="{{$record_id}}">
-  
+        <input class="form-check-input" type="hidden"  name="hrp_opc[]"/>
+
         <div class="col-sm">
           <div class="text-center "><img src="{{asset('img/rec2.png')}}" width="180"></div>  
         </div>

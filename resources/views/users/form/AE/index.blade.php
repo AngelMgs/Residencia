@@ -6,10 +6,24 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title">Formatos de Acta Escolar</h4>
+                        <h4 class="card-title">Escritos</h4>
+                        
+                        <br>
                         <div class="text-left">
-                            <a class="text-grey-lighter font-bold py-3 px-6 rounded text-xs bg-green-300 hover:bg-blue-dark" href="{{ route('forms3.create') }}">Añadir Formato</a>
-                        </div> 
+                            <div class="text-left">
+                                <h2 class="card-category">Seleccione un Formato Para Agregar al Expediente:</h2>   
+                            <form action="{{ route('forms3.create') }}" method="GET">
+                                <select name="fm_pr7" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                    <option value="AE">ACTA ESCOLAR</option>
+                                    <option value="SE">SOLICITUD DE REQUERIMIENTO </option>
+                                    <option value="CN">CANALIZACION</option>
+                                  </select>
+                                  <div class="text-left">
+                                    <button class="text-grey-lighter font-bold py-3 px-6 rounded text-xs bg-green-300 hover:bg-blue-dark">Añadir Formato</button>
+                                  </div>  
+                            </form>
+                            </div>
+                        </div>
                     </div>
 
                     

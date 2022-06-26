@@ -30,6 +30,7 @@
 
     <input  name="name" type="hidden" value="HojaDeRegitroPersonal">
     <input  name="record_id" type="hidden" value="{{$record_id}}">
+    <input class="form-check-input" type="hidden"  name="hrp_opc[]"/>
 
     <div class="row">
         <div class="col-sm">
@@ -56,7 +57,7 @@
             </div>    
         </div>
     </div>
-
+    
     <div class="row">
         <label >NOMBRE DEL ALUMNO:</label>
         <div class="col-sm-12">
@@ -286,7 +287,7 @@
               </div>
         </div>
     </div>
-
+    
     <div class="card-footer ml-auto mr-auto">
         <button class="text-grey-lighter font-bold py-3 px-6 rounded text-xs bg-blue-300 hover:bg-blue-dark">Guardar</button>
       </div>

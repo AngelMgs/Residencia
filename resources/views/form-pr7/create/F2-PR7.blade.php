@@ -39,7 +39,7 @@
 
     <div class="row">
         <div class="col-sm">
-            <p class="text-center"><b><u>ACTA ESCOLAR </u></b></p>
+            <p class="text-center"><b><u>ACTA ESCOLAR</u></b></p>
         </div>
     </div>
     <div class="row">
