@@ -47,10 +47,15 @@ class RecordController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name' => 'required|string|unique:records',
+        ]);
+
         $folio = uniqid();
         //
         $rcd = new Record();
-        $rcd->name = $request->nombre;
+        $rcd->name = $request->name;
         $rcd->folio = $folio;
 
         $rcd->save();

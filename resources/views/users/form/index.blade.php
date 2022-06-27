@@ -15,8 +15,8 @@
                             <form action="{{ route('forms.create') }}" method="GET">
                                 <input  name="record_id" type="hidden" value="{{$id}}">
                                 <select name="fm_pr7" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                                    <option value="HC1">Historial Clinico 1</option>
-                                    <option value="HC2">Historial Clinico 2</option>
+                                    <option value="HC1">Historial Clinico</option>
+                                    <option value="HC2">Evaluacion Psicológica</option>
                                     <option value="HRP">Hoja de Regitro Personal</option>
                                     <option value="HD1">Hoja del Diario 1</option>
                                     <option value="HD2">Hoja del Diario 2</option>

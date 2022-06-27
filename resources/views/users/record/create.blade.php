@@ -18,11 +18,11 @@
                             <div class="row">
                                 <label for="nombre" class="col-sm-3 col-form-label">Nombre del Expediente
                                     <div class="col-sm-100">
-                                        <input type="text" class="form-control" name="nombre"
-                                            placeholder="Ingrese Nombre" value="{{ old('nombre') }}" autofocus>
-                                        @if ($errors->has('nombre'))
+                                        <input type="text" class="form-control" name="name"
+                                            placeholder="Ingrese Nombre" value="{{ old('name') }}" autofocus>
+                                        @if ($errors->has('name'))
                                             <span class="error text-danger"
-                                                for="input-name">{{ $errors->first('nombre') }}</span>
+                                                for="input-name">{{ $errors->first('name') }}</span>
                                         @endif
                                     </div>    
                                 </label>      

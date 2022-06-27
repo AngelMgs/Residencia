@@ -113,6 +113,8 @@ class FormController extends Controller
         }elseif($name  == 'HISTORIALCLINICO'){
             $inf = array_merge( ['nombre' => $info['hrp_miem'], 'parentesco' =>$info['hrp_paren'], 'edad' =>$info['hrp_eda'], 'escolarida' =>$info['hrp_escol'], 'ocupacion' =>$info['hrp_ocup']]);
             return view('form-pr7.index.HC0-PR7',compact('info','inf'));
+        }elseif($name  == 'EVALUCACIONPSICOLOGICA'){
+           
         }
         return view($ruta,compact('info'));
     }
@@ -146,7 +148,7 @@ class FormController extends Controller
             $inf = array_merge( ['nombre' => $info['hrp_miem'], 'parentesco' =>$info['hrp_paren'], 'edad' =>$info['hrp_eda'], 'escolarida' =>$info['hrp_escol'], 'ocupacion' =>$info['hrp_ocup']]);
             return view('form-pr7.edit.HC0-PR7',compact('info','record_id','id','inf'));
             
-        }elseif($name  == 'HC2'){
+        }elseif($name  == 'EVALUCACIONPSICOLOGICA'){
             $ruta = 'form-pr7.edit.HC1-PR7';
         }
         return view($ruta,compact('info','record_id','id'));
@@ -167,11 +169,13 @@ class FormController extends Controller
         $form = array_splice($form ,2);
         $info = json_encode($form);
 
+        //return $info;
+
         $form = Form::where('id','=',$id)->update(['info' =>  $info]);
         
         return redirect()->route('records.show',$record_id)
         ->withSuccess('Formato Actualizado correctamente');
-        return $record_id;
+        //return $record_id;
     }
 
     /**
