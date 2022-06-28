@@ -91,58 +91,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>INSTITUTO MEXICANO 
-                        DEL SEGURO SOCIAL</td>
-                    <td>{{$info['hrp_d1']}}</td>
-                    <td>{{$info['hrp_t1']}}</td>
-                  </tr>
 
+                @for ($i=0; $i < $count ; $i++)
                   <tr>
-                    <td>INJUVEMP INSTITUTO 
-                        MUNICIPAL DE LA JUVENTUD 
-                        Y DEL EMPRENDIMIENTO</td>
-                    <td>{{$info['hrp_d2']}}</td>
-                    <td>{{$info['hrp_t2']}}</td>
+                    <td>{{$inf['dependencia'][$i]}}</td>
+                    <td>{{$inf['direccion'][$i]}}</td>
+                    <td>{{$inf['telefono'][$i]}}</td>
                   </tr>
+                @endfor
 
-                  <tr>
-                    <td>CENTRO DE INTEGRACION 
-                        JUVENIL</td>
-                    <td>{{$info['hrp_d3']}}</td>
-                    <td>{{$info['hrp_t3']}}</td>
-                  </tr>
-
-                  <tr>
-                    <td>CENTRO PARA LA 
-                        PREVENCIÓN Y 
-                        TRATAMIENTO EN 
-                        ADICCIONES (CENTRA)</td>
-                    <td>Carretera  internacional Berriozábal </td>
-                    <td>961-2078007</td>
-                  </tr>
-
-                  <tr>
-                    <td>CENTROS UNEME-CAPA</td>
-                    <td>{{$info['hrp_d4']}}</td>
-                    <td>{{$info['hrp_t4']}}</td>
-                  </tr>
-
-                  <tr>
-                    <td>CENTROS UNEME CISAMEN</td>
-                    <td>{{$info['hrp_d5']}}</td>
-                    <td>{{$info['hrp_t5']}}</td>
-                  </tr>
-
-                  <tr>
-                    <td>CENTRO ESTATAL DE LA 
-                        PREVENCIÓN SOCIAL DE LA 
-                        VIOLENCIA Y 
-                        PARTICIPACIÓN CIUDADANA DEL ESTADO 
-                        DE CHIAPAS</td>
-                    <td>{{$info['hrp_d6']}}</td>
-                    <td>{{$info['hrp_t6']}}</td>
-                  </tr>
+                  
 
                 </tbody>
             </table>

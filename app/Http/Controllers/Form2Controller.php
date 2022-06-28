@@ -79,7 +79,10 @@ class Form2Controller extends Controller
         $name = $form->name;
         $info = json_decode($info,true);
 
-        return view('form-pr7.index.F1-PR7',compact('info'));
+        $count = count($info['hrp_dep']);
+        $inf= array_merge( ['dependencia' => $info['hrp_dep'], 'direccion' =>$info['hrp_dir'], 'telefono' =>$info['hrp_tel']]);
+        
+        return view('form-pr7.index.F1-PR7',compact('inf','count'));
     }
 
     /**
@@ -97,7 +100,10 @@ class Form2Controller extends Controller
         $name = $form->name;
         $info = json_decode($info,true);
 
-        return view('form-pr7.edit.F1-PR7',compact('info','id'));
+        $count = count($info['hrp_dep']);
+        $inf= array_merge( ['dependencia' => $info['hrp_dep'], 'direccion' =>$info['hrp_dir'], 'telefono' =>$info['hrp_tel']]);
+
+        return view('form-pr7.edit.F1-PR7',compact('inf','count','id'));
     }
 
     /**

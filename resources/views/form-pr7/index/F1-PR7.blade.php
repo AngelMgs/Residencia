@@ -62,109 +62,24 @@
         </div>
     </div>
 
+    @for ($i=0; $i < $count ; $i++)
     <div class="row border">
         <div class="col-sm">
-            INSTITUTO MEXICANO 
-            DEL SEGURO SOCIAL
+            <input type="text" name="hrp_dep[]" class="form-control" placeholder="Dependencia" value="{{$inf['dependencia'][$i]}}" readonly>
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_d1']}}</textarea>
+            <input type="text" name="hrp_dir[]" class="form-control" placeholder="Dirección" value="{{$inf['direccion'][$i]}}" readonly>
         </div>
         <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_t1']}}</textarea>
+            <input type="text" name="hrp_tel[]" class="form-control" placeholder="Teléfonos" value="{{$inf['telefono'][$i]}}" readonly>
+        </div>
+        <div class="col-sm">
         </div>
     </div>
-    
-    <div class="row border">
-        <div class="col-sm">
-            INJUVEMP INSTITUTO 
-            MUNICIPAL DE LA JUVENTUD 
-            Y DEL EMPRENDIMIENTO
-        </div>
-        <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_d2']}}</textarea>
-        </div>
-        <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_t2']}}</textarea>
-        </div>
-    </div>
-
-    <div class="row border">
-        <div class="col-sm">
-            CENTRO DE INTEGRACION 
-            JUVENIL 
-        </div>
-        <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_d3']}}</textarea>
-        </div>
-        <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_t3']}}</textarea>
-        </div>
-    </div>
-
-    <div class="row border">
-        <div class="col-sm">
-            CENTRO PARA LA 
-            PREVENCIÓN Y 
-            TRATAMIENTO EN 
-            ADICCIONES (CENTRA)
-        </div>
-        <div class="col-sm">
-            Carretera  internacional Berriozábal 
-        </div>
-        <div class="col-sm">
-            961-2078007
-        </div>
-    </div>
-
-    <div class="row border">
-        <div class="col-sm">
-            CENTROS UNEME-CAPA
-        </div>
-        <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_d4']}}</textarea>
-        </div>
-        <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_t4']}}</textarea>
-        </div>
-    </div>
-
-    <div class="row border">
-        <div class="col-sm">
-            CENTROS UNEME CISAMEN
-        </div>
-        <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_d5']}}</textarea>
-        </div>
-        <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_t5']}}</textarea>
-        </div>
-    </div>
-
-    <div class="row border">
-        <div class="col-sm">
-            CENTRO ESTATAL DE LA 
-            PREVENCIÓN SOCIAL DE LA 
-            VIOLENCIA Y 
-            PARTICIPACIÓN CIUDADANA DEL ESTADO 
-            DE CHIAPAS
-        </div>
-        <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_d6']}}</textarea>
-        </div>
-        <div class="col-sm">
-            <textarea class="form-control" rows="2" name="hrp_situacion_motivos" readonly>{{$info['hrp_t6']}}</textarea>
-        </div>
-    </div>
+    @endfor
 
 
 </div>
 
-<script>
-    date = new Date();
-    year = date.getFullYear();
-    month = date.getMonth() + 1;
-    day = date.getDate();
-    document.getElementById("hrp-fecha").innerHTML = day + "/" + month + "/" + year;
-</script>
+
 @endsection

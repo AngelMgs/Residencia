@@ -2,6 +2,37 @@
 
 @section('content')
 <div class="container">
+    <script>
+        $(function() {
+            var contador = 1;
+            $("#add_m").click(function() {
+                contador++;
+                $("#add_m1").append('<div class="row border" id="newRow_'+contador+'">'+
+                                    '<div class="col-sm">'+
+                                    '    <input type="text" name="hrp_dep[]" class="form-control" placeholder="Dependencia">'+
+                                    '</div>'+
+                                    '<div class="col-sm">'+
+                                        '<input type="text" name="hrp_dir[]" class="form-control" placeholder="Dirección">'+
+                                    '</div>'+
+                                    '<div class="col-sm">'+
+                                        '<input type="text" name="hrp_tel[]" class="form-control" placeholder="Teléfonos">'+
+                                    '</div>'+
+                                    '<div class="col-sm">'+
+                                        '<button type="button" class="delete_m btn btn-outline-secondary" id="'+contador+'">Eliminar</button>'+
+                                    '</div>'+
+                                    '</div>'
+                                );
+            });
+      
+            $(document).on('click', '.delete_m', function() {
+                var id = $(this).attr("id");
+                console.log(id);
+
+                $("#newRow_"+id).remove();
+            });
+            
+        });
+</script>
 
 <form action="{{ route('forms2.update',$id ) }}" method="post"> 
     @csrf
@@ -56,103 +87,31 @@
           </div>
       </div>
   
-      <div class="row border">
-          <div class="col-sm">
-              INSTITUTO MEXICANO 
-              DEL SEGURO SOCIAL
-          </div>
-          <div class="col-sm">
-              <textarea class="form-control" rows="2" name="hrp_d1" >{{$info['hrp_d1']}}</textarea>
-          </div>
-          <div class="col-sm">
-              <textarea class="form-control" rows="2" name="hrp_t1" >{{$info['hrp_t1']}}</textarea>
-          </div>
-      </div>
-      
-      <div class="row border">
-          <div class="col-sm">
-              INJUVEMP INSTITUTO 
-              MUNICIPAL DE LA JUVENTUD 
-              Y DEL EMPRENDIMIENTO
-          </div>
-          <div class="col-sm">
-              <textarea class="form-control" rows="2" name="hrp_d2" >{{$info['hrp_d2']}}</textarea>
-          </div>
-          <div class="col-sm">
-              <textarea class="form-control" rows="2" name="hrp_t2" >{{$info['hrp_t2']}}</textarea>
-          </div>
-      </div>
-  
-      <div class="row border">
-          <div class="col-sm">
-              CENTRO DE INTEGRACION 
-              JUVENIL 
-          </div>
-          <div class="col-sm">
-              <textarea class="form-control" rows="2" name="hrp_d3" >{{$info['hrp_d3']}}</textarea>
-          </div>
-          <div class="col-sm">
-              <textarea class="form-control" rows="2" name="hrp_t3" >{{$info['hrp_t3']}}</textarea>
-          </div>
-      </div>
-  
-      <div class="row border">
-          <div class="col-sm">
-              CENTRO PARA LA 
-              PREVENCIÓN Y 
-              TRATAMIENTO EN 
-              ADICCIONES (CENTRA)
-          </div>
-          <div class="col-sm">
-              Carretera  internacional Berriozábal 
-          </div>
-          <div class="col-sm">
-              961-2078007
-          </div>
-      </div>
-  
-      <div class="row border">
-          <div class="col-sm">
-              CENTROS UNEME-CAPA
-          </div>
-          <div class="col-sm">
-              <textarea class="form-control" rows="2" name="hrp_d4" >{{$info['hrp_d4']}}</textarea>
-          </div>
-          <div class="col-sm">
-              <textarea class="form-control" rows="2" name="hrp_t4" >{{$info['hrp_t4']}}</textarea>
-          </div>
-      </div>
-  
-      <div class="row border">
-          <div class="col-sm">
-              CENTROS UNEME CISAMEN
-          </div>
-          <div class="col-sm">
-              <textarea class="form-control" rows="2" name="hrp_d5" >{{$info['hrp_d5']}}</textarea>
-          </div>
-          <div class="col-sm">
-              <textarea class="form-control" rows="2" name="hrp_t5" >{{$info['hrp_t5']}}</textarea>
-          </div>
-      </div>
-  
-      <div class="row border">
-          <div class="col-sm">
-              CENTRO ESTATAL DE LA 
-              PREVENCIÓN SOCIAL DE LA 
-              VIOLENCIA Y 
-              PARTICIPACIÓN CIUDADANA DEL ESTADO 
-              DE CHIAPAS
-          </div>
-          <div class="col-sm">
-              <textarea class="form-control" rows="2" name="hrp_d6" >{{$info['hrp_d6']}}</textarea>
-          </div>
-          <div class="col-sm">
-              <textarea class="form-control" rows="2" name="hrp_t6" >{{$info['hrp_t6']}}</textarea>
-          </div>
-      </div>
+    @for ($i=0; $i < $count ; $i++)
+    <div class="row border">
+        <div class="col-sm">
+            <input type="text" name="hrp_dep[]" class="form-control" placeholder="Dependencia" value="{{$inf['dependencia'][$i]}}">
+        </div>
+        <div class="col-sm">
+            <input type="text" name="hrp_dir[]" class="form-control" placeholder="Dirección" value="{{$inf['direccion'][$i]}}">
+        </div>
+        <div class="col-sm">
+            <input type="text" name="hrp_tel[]" class="form-control" placeholder="Teléfonos" value="{{$inf['telefono'][$i]}}">
+        </div>
+        <div class="col-sm">
+        </div>
+    </div>
+    @endfor
+
+    <div class="row border" id="add_m1">
+    </div>
+    
+    <div class="row boder">
+        <button type="button" id="add_m" class="text-white-lighter font-bold py-3 px-6 rounded text-xs bg-gray-300 hover:bg-gray-dark">Agregar Dependencia</button>
+    </div>
   
   
-  </div>
+  
 
     <div class="card-footer ml-auto mr-auto">
         <button class="text-grey-lighter font-bold py-3 px-6 rounded text-xs bg-blue-300 hover:bg-blue-dark">Guardar</button>
@@ -163,11 +122,5 @@
 
 </div>
 
-<script>
-    date = new Date();
-    year = date.getFullYear();
-    month = date.getMonth() + 1;
-    day = date.getDate();
-    document.getElementById("hrp-fecha").innerHTML = day + "/" + month + "/" + year;
-</script>
+
 @endsection

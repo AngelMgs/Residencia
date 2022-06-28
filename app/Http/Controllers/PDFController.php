@@ -38,7 +38,10 @@ class PDFController extends Controller
         }elseif($name == 'HojaDeRegitroPersonal'){
             $ruta = 'form-pr7.pdf.HRP-PR7';
         }elseif($name == 'REDDEAPOYOEINTITUCIONESEXTERNAS'){
-            $ruta = 'form-pr7.pdf.F1-PR7';
+            $count = count($info['hrp_dep']);
+            $inf= array_merge( ['dependencia' => $info['hrp_dep'], 'direccion' =>$info['hrp_dir'], 'telefono' =>$info['hrp_tel']]);
+            $pdf = PDF::loadView('form-pr7.pdf.F1-PR7',compact('count','inf'));
+            return $pdf->stream($name.'.pdf');
         }elseif($name == 'ACTAESCOLAR'){
             $ruta = 'form-pr7.pdf.F2-PR7';
         }elseif($name == 'SOLICITUDDEREQUERIMIENTO'){
