@@ -49,6 +49,8 @@ class PDFController extends Controller
             $inf = array_merge( ['nombre' => $info['hrp_miem'], 'parentesco' =>$info['hrp_paren'], 'edad' =>$info['hrp_eda'], 'escolarida' =>$info['hrp_escol'], 'ocupacion' =>$info['hrp_ocup']]);
             $pdf = PDF::loadView('form-pr7.pdf.HC0-PR7',compact('info','inf'));
             return $pdf->stream($name.'.pdf');
+        }elseif($name  == 'EVALUCACIONPSICOLOGICA'){
+            $ruta = 'form-pr7.pdf.HC1-PR7';
         }
 
         //return $info;

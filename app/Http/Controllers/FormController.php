@@ -114,7 +114,7 @@ class FormController extends Controller
             $inf = array_merge( ['nombre' => $info['hrp_miem'], 'parentesco' =>$info['hrp_paren'], 'edad' =>$info['hrp_eda'], 'escolarida' =>$info['hrp_escol'], 'ocupacion' =>$info['hrp_ocup']]);
             return view('form-pr7.index.HC0-PR7',compact('info','inf'));
         }elseif($name  == 'EVALUCACIONPSICOLOGICA'){
-           
+            $ruta = 'form-pr7.index.HC1-PR7';
         }
         return view($ruta,compact('info'));
     }
